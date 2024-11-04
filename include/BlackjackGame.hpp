@@ -16,7 +16,7 @@ private:
 
 public:
     // Constructor
-    BlackjackGame(double minBetAmount, double maxBetAmount);
+    BlackjackGame(double minBetAmount, double maxBetAmount, Dealer gameDealer);
 
     // Player actions
     void hit(Player* player);                 // Player requests an additional card

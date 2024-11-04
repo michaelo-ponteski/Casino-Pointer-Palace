@@ -18,7 +18,7 @@ protected:
 
 public:
     // Constructor
-    CardGame(const std::string& name, double minBetAmount, double maxBetAmount);
+    CardGame(const std::string& name, double minBetAmount, double maxBetAmount, Dealer gameDealer);
 
     // Shuffles the deck at the beginning of the game or between rounds
     void shuffleDeck();
