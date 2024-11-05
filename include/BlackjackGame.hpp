@@ -18,6 +18,9 @@ public:
     // Constructor
     BlackjackGame(double minBetAmount, double maxBetAmount, Dealer gameDealer);
 
+    // Deal cards to players
+    void dealCards() override;
+
     // Player actions
     void hit(Player* player);                 // Player requests an additional card
     void stand(Player* player);               // Player decides to stand

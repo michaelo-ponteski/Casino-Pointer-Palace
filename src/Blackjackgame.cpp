@@ -7,6 +7,16 @@ BlackjackGame::BlackjackGame(double minBetAmount, double maxBetAmount, Dealer ga
     std::cout << "Blackjack game created." << std::endl;
 }
 
+// Checks if a hand has a blackjack (initial two cards total 21)
+bool BlackjackGame::checkBlackjack(const BlackjackHand& hand) const {
+    //return hand.getHandValue() == 21 && hand.getHandSize() == 2;
+}
+
+// Deal cards to players
+void BlackjackGame::dealCards() {
+    std::cout << "Dealing cards for Blackjack..." << std::endl;
+}
+
 // Player requests an additional card
 void BlackjackGame::hit(Player* player) {
     std::cout << player->getName() << " hits." << std::endl;
