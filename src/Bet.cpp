@@ -1,4 +1,5 @@
 #include "../include/Bet.hpp"
+#include "../include/Player.hpp"
 #include <iostream>
 
 // Constructor

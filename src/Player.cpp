@@ -1,5 +1,5 @@
 #include "../include/Player.hpp"
-#include "../src/Bet.cpp"
+#include "../include/Bet.hpp"
 #include <iostream>
 #include <string>
 

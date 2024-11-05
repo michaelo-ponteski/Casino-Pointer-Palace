@@ -13,8 +13,6 @@ protected:
     Dealer dealer;                           // Dealer for managing game operations
     std::vector<Card*> communityCards;       // Community cards for games that use them (e.g., Poker)
 
-    // Calculates the hand value, to be used by derived classes
-    int calculateHandValue() const;
 
 public:
     // Constructor

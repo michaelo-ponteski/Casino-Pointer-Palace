@@ -2,7 +2,8 @@
 #define BET_HPP
 
 #include <string>
-#include "../include/Player.hpp"
+// Forward declaration of Player to avoid circular dependency
+class Player;
 
 enum class BetType {
     NUMBER,     // Bet on a specific number

@@ -5,6 +5,7 @@
 #include "CardGame.hpp"
 #include "Player.hpp"
 #include "BlackjackHand.hpp"
+#include "Dealer.hpp"
 
 class BlackjackGame : public CardGame {
 private:

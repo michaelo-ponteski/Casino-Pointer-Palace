@@ -1,4 +1,6 @@
 #include "../include/BlackjackGame.hpp"
+#include "../include/Player.hpp"
+#include "../include/BlackjackHand.hpp"
 #include <iostream>
 
 // Constructor
