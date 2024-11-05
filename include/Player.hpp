@@ -3,9 +3,9 @@
 
 #include <string>
 #include <vector>
-#include "Bet.hpp"
-#include "PlayerStats.hpp"
-#include "GameResult.hpp"
+#include "../include/Bet.hpp"
+//#include "PlayerStats.hpp"
+//#include "GameResult.hpp"
 
 class Player {
 private:
@@ -13,18 +13,18 @@ private:
     std::string name;               // Name of the player
     double balance;                 // Player's balance
     std::vector<Bet*> bets;         // Bets placed by the player
-    PlayerStats stats;              // Player's statistics and history
+    //PlayerStats stats;              // Player's statistics and history
 
 protected:
     // Updates player stats based on the game result
-    void updateStats(GameResult result);
+    //void updateStats(GameResult result);
 
 public:
     // Constructor
     Player(int id, const std::string& playerName, double initialBalance);
 
     // Places a bet of the specified amount, returns true if successful
-    bool placeBet(double amount);
+    bool placeBet(double amount, BetType betType);
 
     // Adds a specified amount to the player's balance
     void addBalance(double amount);

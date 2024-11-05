@@ -10,12 +10,12 @@ Player::Player(int id, const std::string& playerName, double initialBalance)
 }
 
 // Places a bet of the specified amount, returns true if successful
-bool Player::placeBet(double amount) {
+bool Player::placeBet(double amount, BetType betType) {
     if (amount > balance) {
         std::cout << "Insufficient balance to place bet." << std::endl;
         return false;
     }
-    Bet* newBet = new Bet(amount);
+    Bet* newBet = new Bet(amount, betType, this);
     bets.push_back(newBet);
     balance -= amount;
     std::cout << name << " placed a bet of $" << amount << "." << std::endl;

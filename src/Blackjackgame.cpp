@@ -10,6 +10,7 @@ BlackjackGame::BlackjackGame(double minBetAmount, double maxBetAmount, Dealer ga
 // Checks if a hand has a blackjack (initial two cards total 21)
 bool BlackjackGame::checkBlackjack(const BlackjackHand& hand) const {
     //return hand.getHandValue() == 21 && hand.getHandSize() == 2;
+    return false; // Placeholder implementation
 }
 
 // Deal cards to players

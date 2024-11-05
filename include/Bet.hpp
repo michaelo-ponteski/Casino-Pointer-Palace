@@ -2,7 +2,7 @@
 #define BET_HPP
 
 #include <string>
-#include "Player.hpp"
+#include "../include/Player.hpp"
 
 enum class BetType {
     NUMBER,     // Bet on a specific number
@@ -10,7 +10,8 @@ enum class BetType {
     EVEN_ODD,   // Bet on even or odd
     PLAYER,     // Bet on the player's hand in Baccarat
     BANKER,     // Bet on the banker's hand in Baccarat
-    TIE         // Bet on a tie in Baccarat
+    TIE,        // Bet on a tie in Baccarat
+    STANDARD    // Bet for Blackjack, Poker, etc.
     // Add more bet types as needed
 };
 
