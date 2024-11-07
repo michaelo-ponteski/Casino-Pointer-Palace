@@ -3,14 +3,19 @@
 
 #include <vector>
 #include "Card.hpp"
+#include "Player.hpp"
 
 class BlackjackHand {
 private:
     std::vector<Card> cards; // The cards in this Blackjack hand
 
 public:
+    Player* owner; // The player who owns this hand
+    double betAmount; // The amount of the bet placed on this hand
+    bool isActive; // Whether the hand is still active in the game
+
     // Constructor
-    BlackjackHand();
+    BlackjackHand(Player* player);
 
     // Adds a card to the hand
     void addCard(const Card& card);

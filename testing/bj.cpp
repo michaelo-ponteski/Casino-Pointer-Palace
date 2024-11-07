@@ -5,20 +5,20 @@
 
 int main() {
     // Create a Blackjack game
-    Dealer dealer(160333, "Ziomal");
-    BlackjackGame blackjack(10.0, 100.0, dealer);
+    // Dealer dealer(160333, "Ziomal");
+    // BlackjackGame blackjack(10.0, 100.0, dealer);
 
-    // Start the game
-    blackjack.startGame();
+    // // Start the game
+    // blackjack.startGame();
 
-    // Create a player
-    Player player(123456, "Agnieszka", 1000.0);
+    // // Create a player
+    // Player player(123456, "Agnieszka", 1000.0);
 
-    // Player actions
-    blackjack.hit(&player);
+    // // Player actions
+    // blackjack.hit(&player);
     
-    // End the game
-    blackjack.endGame();
+    // // End the game
+    // blackjack.endGame();
 
     return 0;
 }

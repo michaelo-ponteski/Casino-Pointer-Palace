@@ -5,7 +5,7 @@
 #include <vector>
 
 // Constructor
-BlackjackHand::BlackjackHand() {
+BlackjackHand::BlackjackHand(Player* player) : owner(player), betAmount(0.0), isActive(true) {
     std::cout << "Blackjack hand created." << std::endl;
 }
 
