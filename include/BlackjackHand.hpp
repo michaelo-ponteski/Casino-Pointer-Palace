@@ -23,6 +23,9 @@ public:
     // Calculates the total value of the hand
     int calculateValue() const;
 
+    // Checks if the hand is splittable
+    bool isSplittable() const;
+
     // Returns the cards in the hand
     const std::vector<Card>& getCards() const;
 

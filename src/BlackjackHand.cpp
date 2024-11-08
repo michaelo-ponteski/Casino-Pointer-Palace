@@ -54,6 +54,16 @@ int BlackjackHand::calculateValue() const {
     return totalValue;
 }
 
+// Checks if the hand is splittable
+bool BlackjackHand::isSplittable() const {
+    if (cards.size() != 2) {
+        return false;
+    }
+
+    // Check if the two cards have the same rank
+    return cards[0].getRank() == cards[1].getRank();
+}
+
 // Returns the cards in the hand
 const std::vector<Card>& BlackjackHand::getCards() const {
     return cards;

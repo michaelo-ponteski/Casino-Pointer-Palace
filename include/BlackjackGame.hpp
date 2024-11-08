@@ -13,8 +13,8 @@ private:
     std::vector<std::unique_ptr<BlackjackHand>> playerHands;  // Hands of the player
     std::unique_ptr<BlackjackHand> dealerHand;                // Hand of the dealer
 
-    // Checks if a hand has a blackjack (initial two cards total 21)
-    bool checkBlackjack(const BlackjackHand& hand) const;
+    // Checks if any hand has a blackjack (initial two cards total 21)
+    size_t checkBlackjack();
 
 public:
     // Constructor

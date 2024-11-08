@@ -9,10 +9,22 @@ BlackjackGame::BlackjackGame(double minBetAmount, double maxBetAmount, Dealer ga
     dealerHand = std::make_unique<BlackjackHand>(gameDealer);
 }
 
-// Checks if a hand has a blackjack (initial two cards total 21)
-bool BlackjackGame::checkBlackjack(const BlackjackHand& hand) const {
-    //return hand.getHandValue() == 21 && hand.getHandSize() == 2;
-    return false; // Placeholder implementation
+// Checks if any hand has a blackjack (initial two cards total 21)
+size_t BlackjackGame::checkBlackjack() {
+    // check if the dealer has blackjack
+    if (dealerHand->calculateValue() == 21) {
+        std::cout << "Blackjack for dealer!" << std::endl;
+        return playerHands.size();
+    }
+    // check for blackjack in player hands
+    for (size_t i = 0; i < playerHands.size(); ++i) {
+        if (playerHands[i]->calculateValue() == 21) {
+            playerHands[i]->isActive = false;
+            std::cout << "Blackjack for player " << playerHands[i]->owner->getName() << "!" << std::endl;
+            return i;
+        }
+    }
+    return -1;
 }
 
 // Add player hand
@@ -70,7 +82,30 @@ bool BlackjackGame::split(size_t handIndex) {
 
 // Prompts the player to choose an action
 void BlackjackGame::promptPlayerAction(Player* player) {
-    std::cout << "Prompting player " << player->getName() << " to choose an action..." << std::endl;
+    for (size_t i = 0; i < playerHands.size(); ++i) {
+        if ((playerHands[i]->owner == player) && (playerHands[i]->isActive)) {
+            if (playerHands[i]->isSplittable()) {
+                std::cout << "Choose action for hand " << i + 1 << ": (hit/stand/double/split)" << std::endl;
+            } else {
+                std::cout << "Choose action for hand " << i + 1 << ": (hit/stand/double)" << std::endl;
+            }
+            std::string action;
+            std::cin >> action;
+
+            if (action == "hit") {
+                hit(i);
+            } else if (action == "stand") {
+                stand(i);
+            } else if (action == "double") {
+                doubleDown(i);
+            } else if (action == "split" && playerHands[i]->isSplittable()) {
+                split(i);
+            } else {
+                std::cout << "Invalid action. Please choose again." << std::endl;
+                --i; // Retry the same hand
+            }
+        }
+    }
 }
 
 // Starts the Blackjack game

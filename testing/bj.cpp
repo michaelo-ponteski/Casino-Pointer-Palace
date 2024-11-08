@@ -4,21 +4,28 @@
 // run with: g++ bj.cpp ../src/Bet.cpp ../src/Player.cpp ../src/BlackjackGame.cpp ../src/Dealer.cpp ../src/CardGame.cpp ../src/Game.cpp ../src/Deck.cpp ../src/Card.cpp ../src/BlackjackHand.cpp -o bj
 
 int main() {
-    // Create a Blackjack game
-    // Dealer dealer(160333, "Ziomal");
-    // BlackjackGame blackjack(10.0, 100.0, dealer);
+    // Create a new Blackjack game
+    Dealer dealer(420, "Ziomal");
+    BlackjackGame game(10.0, 100.0, dealer);
 
-    // // Start the game
-    // blackjack.startGame();
+    // Add player to the game
+    Player player1(69, "Alice", 100.0);
+    game.addPlayerHand(&player1);
 
-    // // Create a player
-    // Player player(123456, "Agnieszka", 1000.0);
+    // Start the game
+    game.startGame();
 
-    // // Player actions
-    // blackjack.hit(&player);
-    
-    // // End the game
-    // blackjack.endGame();
+    // Deal cards to players
+    game.dealCards();
+
+    // Check for blackjack (private for now)
+    //game.checkBlackjack();
+
+    // Prompt player to choose an action
+    game.promptPlayerAction(&player1);
+
+    // End the game
+    game.endGame();
 
     return 0;
 }
