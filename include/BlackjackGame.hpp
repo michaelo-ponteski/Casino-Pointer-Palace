@@ -7,24 +7,30 @@
 #include "Player.hpp"
 #include "BlackjackHand.hpp"
 #include "Dealer.hpp"
+#include "DealerHand.hpp"
 
 class BlackjackGame : public CardGame {
 private:
     std::vector<std::unique_ptr<BlackjackHand>> playerHands;  // Hands of the player
-    std::unique_ptr<BlackjackHand> dealerHand;                // Hand of the dealer
+    std::unique_ptr<DealerHand> dealerHand;                // Hand of the dealer
+    Dealer& dealer;                                         // Reference to the dealer
 
-    // Checks if any hand has a blackjack (initial two cards total 21)
-    size_t checkBlackjack();
 
 public:
     // Constructor
-    BlackjackGame(double minBetAmount, double maxBetAmount, Dealer gameDealer);
+    BlackjackGame(double minBetAmount, double maxBetAmount, Dealer& gameDealer); // Pass by reference
+
+    // Checks if any hand has a blackjack (initial two cards total 21)
+    size_t checkBlackjack();
 
     // Add player hand
     void addPlayerHand(Player* player);
     
     // Deal cards to players
     void dealCards() override;
+
+    // Print all hands
+    void printHands() const;
 
     // Player actions
     void hit(size_t handIndex);                 // Player requests an additional card
@@ -33,6 +39,10 @@ public:
     bool split(size_t handIndex);               // Player splits a hand into two if possible
 
     void promptPlayerAction(Player* player);  // Prompts the player to choose an action
+
+    int dealersTurn();  // Dealer's turn
+
+    std::vector<int> getHandValues() const;  // Get the value of each player hand
 
 
     // Starts the Blackjack game, overriding startGame from Game

@@ -6,7 +6,7 @@
 #include "Player.hpp"
 
 class BlackjackHand {
-private:
+protected:
     std::vector<Card> cards; // The cards in this Blackjack hand
 
 public:
