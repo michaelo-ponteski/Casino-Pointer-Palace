@@ -13,12 +13,10 @@ protected:
     Dealer dealer;                           // Dealer for managing game operations
     std::vector<Card*> communityCards;       // Community cards for games that use them (e.g., Poker)
 
-    // Calculates the hand value, to be used by derived classes
-    int calculateHandValue() const;
 
 public:
     // Constructor
-    CardGame(const std::string& name, double minBetAmount, double maxBetAmount);
+    CardGame(const std::string& name, double minBetAmount, double maxBetAmount, Dealer gameDealer);
 
     // Shuffles the deck at the beginning of the game or between rounds
     void shuffleDeck();
