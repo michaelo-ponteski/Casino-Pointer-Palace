@@ -26,27 +26,36 @@ void testBasicGameplay() {
     size_t blackjackIndex = game.checkBlackjack();
     if (blackjackIndex == -1) {
         std::cout << "Dealer has blackjack!" << std::endl;
+        std::cout << "\n=== Game Over ===\n";
+        game.endGame();
+        return;
     } else if (blackjackIndex != -2) {
         std::cout << "Blackjack for player " << player1.getName() << "!" << std::endl;
+        std::cout << "\n=== Game Over ===\n";
+        game.endGame();
+        return;
     } else {
         std::cout << "No blackjack." << std::endl;
     }
 
     // Player actions
     game.promptPlayerAction(&player1);
-    // game.printHands();
+    std::vector<int> playerValues = game.getHandValues();
     int dealerValue = game.dealersTurn();
-    int playerValue = game.getHandValues()[0];
     std::cout << "Dealer's hand value: " << dealerValue << std::endl;
-    std::cout << "Player's hand value: " << playerValue << std::endl;
-    if (playerValue > 21) {
-        std::cout << "Player busts!" << std::endl;
-    } else if (dealerValue > 21 || playerValue > dealerValue) {
-        std::cout << "Player wins!" << std::endl;
-    } else if (playerValue == dealerValue) {
-        std::cout << "Push!" << std::endl;
-    } else {
-        std::cout << "Dealer wins!" << std::endl;
+
+    for (size_t i = 0; i < playerValues.size(); ++i) {
+        int playerValue = playerValues[i];
+        std::cout << "Player " << i + 1 << "'s hand value: " << playerValue << std::endl;
+        if (playerValue > 21) {
+            std::cout << "Player " << i + 1 << " busts!" << std::endl;
+        } else if (dealerValue > 21 || playerValue > dealerValue) {
+            std::cout << "Player " << i + 1 << " wins!" << std::endl;
+        } else if (playerValue == dealerValue) {
+            std::cout << "Player " << i + 1 << " pushes!" << std::endl;
+        } else {
+            std::cout << "Dealer wins against player " << i + 1 << "!" << std::endl;
+        }
     }
 
     std::cout << "\n=== Game Over ===\n";
@@ -54,7 +63,7 @@ void testBasicGameplay() {
 }
 
 void testSplitHand() {
-    // Test splitting functionality
+    // Test splitting a hand
 }
 
 void testDoubleDown() {
@@ -66,16 +75,14 @@ void testDealerBehavior() {
 }
 
 int main() {
-    try {
+    while(true) {
         testBasicGameplay();
-        testSplitHand();
-        testDoubleDown();
-        testDealerBehavior();
-        
-        std::cout << "All tests passed!\n";
-    } catch (const std::exception& e) {
-        std::cerr << "Test failed: " << e.what() << std::endl;
-        return 1;
+        std::string input;
+        std::cout << "Play again? (y/n): ";
+        std::cin >> input;
+        if (input != "y") {
+            break;
+        }
     }
     return 0;
 }

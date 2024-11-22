@@ -18,6 +18,9 @@ void Deck::shuffle() {
 
 // Draws a card from the top of the deck
 Card Deck::drawCard() {
+    if (cards.empty()) {
+        resetDeck();
+    }
     Card topCard = cards.back();
     cards.pop_back();
     return topCard;

@@ -13,6 +13,7 @@ size_t BlackjackGame::checkBlackjack() {
     // check if the dealer has blackjack
     if (dealerHand->getVisibleValue() == 11) {
         dealerHand->revealHiddenCard();
+        std::cout << "Dealer's hand: " << dealerHand->getCards()[0].toString() << " " << dealerHand->getCards()[1].toString() << std::endl;
         if (dealerHand->calculateValue() == 21) {
             std::cout << "Dealer has blackjack!" << std::endl;
             return -1; // dealer has blackjack
@@ -57,7 +58,7 @@ void BlackjackGame::printHands() const {
     for (size_t i = 0; i < playerHands.size(); ++i) {
         std::cout << "Player " << playerHands[i]->owner->getName() << "'s hand: ";
         for (const Card& card : playerHands[i]->getCards()) {
-            std::cout << card.toString() << " ";
+            std::cout << card.toString() << "   ";
         }
         std::cout << std::endl;
     }
@@ -112,6 +113,7 @@ bool BlackjackGame::doubleDown(size_t handIndex) {
         std::cout << "Invalid hand index." << std::endl;
         return false;
     }
+    hit(handIndex);
     return true;
 }
 
@@ -134,11 +136,15 @@ bool BlackjackGame::split(size_t handIndex) {
     originalHand->clearHand();
     auto newHand = std::make_unique<BlackjackHand>(originalHand->owner);
     originalHand->addCard(firstCard);
+    originalHand->addCard(deck.drawCard());
     newHand->addCard(secondCard);
+    newHand->addCard(deck.drawCard());
     newHand->betAmount = originalHand->betAmount;
 
     // Add the new hand to the player's hands
     playerHands.push_back(std::move(newHand));
+    printHands();
+    promptPlayerAction(originalHand->owner);
     return true;
 }
 
@@ -162,6 +168,7 @@ void BlackjackGame::promptPlayerAction(Player* player) {
                 doubleDown(i);
             } else if (action == "split" && playerHands[i]->isSplittable()) {
                 split(i);
+                return;
             } else {
                 std::cout << "Invalid action. Please choose again." << std::endl;
                 --i; // Retry the same hand
