@@ -2,6 +2,8 @@
 #include "../include/Player.hpp"
 #include "../include/BlackjackHand.hpp"
 #include <iostream>
+#include <algorithm>
+#include <limits>
 
 // Constructor
 BlackjackGame::BlackjackGame(double minBetAmount, double maxBetAmount, Dealer& gameDealer) : CardGame("Blackjack", minBetAmount, maxBetAmount, gameDealer), dealer(gameDealer) {
@@ -13,6 +15,7 @@ size_t BlackjackGame::checkBlackjack() {
     // check if the dealer has blackjack
     if (dealerHand->getVisibleValue() == 11) {
         dealerHand->revealHiddenCard();
+        std::cout << "Dealer's hand: " << dealerHand->getCards()[0].toString() << " " << dealerHand->getCards()[1].toString() << std::endl;
         if (dealerHand->calculateValue() == 21) {
             std::cout << "Dealer has blackjack!" << std::endl;
             return -1; // dealer has blackjack
@@ -21,7 +24,7 @@ size_t BlackjackGame::checkBlackjack() {
     // check for blackjack in player hands
     for (size_t i = 0; i < playerHands.size(); ++i) {
         if (playerHands[i]->calculateValue() == 21) {
-            playerHands[i]->isActive = false;
+            //playerHands[i]->isActive = false;
             std::cout << "Blackjack for player " << playerHands[i]->owner->getName() << "!" << std::endl;
             return i;
         }
@@ -38,6 +41,12 @@ void BlackjackGame::addPlayerHand(Player* player) {
 void BlackjackGame::dealCards() {
     // shuffle the deck
     shuffleDeck();
+    std::cout << "\n=== Dealing Cards ===\n";
+    // Clear all hands before dealing new cards
+    dealerHand->clearHand();
+    for (auto& hand : playerHands) {
+        hand->clearHand();
+    }
     // two cards for the dealer and for each player hand
     dealerHand->addCard(deck.drawCard());
     dealerHand->addCard(deck.drawCard());
@@ -49,15 +58,13 @@ void BlackjackGame::dealCards() {
 
 // Print all hands
 void BlackjackGame::printHands() const {
-    // print the dealer's hand if he hasn't taken his turn yet
-    if (dealerHand->getCards().size() == 1) {
-        std::cout << "Dealer's hand: " << dealerHand->getCards()[0].toString() << " [Hidden Card]" << std::endl;
-    }
+    // print the dealer's hand
+    std::cout << "Dealer's hand: [Hidden Card]  " << dealerHand->getCards()[1].toString() << std::endl;
 
     for (size_t i = 0; i < playerHands.size(); ++i) {
         std::cout << "Player " << playerHands[i]->owner->getName() << "'s hand: ";
         for (const Card& card : playerHands[i]->getCards()) {
-            std::cout << card.toString() << " ";
+            std::cout << card.toString() << "   ";
         }
         std::cout << std::endl;
     }
@@ -83,10 +90,7 @@ void BlackjackGame::hit(size_t handIndex) {
         std::cout << card.toString() << " ";
     }
     std::cout << std::endl;
-    if (hand->calculateValue() > 21) {
-        hand->isActive = false;
-        std::cout << "Player busts!" << std::endl;
-    }
+    hand->isActive = false;
 }
 
 // Player decides to stand
@@ -112,6 +116,8 @@ bool BlackjackGame::doubleDown(size_t handIndex) {
         std::cout << "Invalid hand index." << std::endl;
         return false;
     }
+    playerHands[handIndex]->betAmount *= 2;
+    hit(handIndex);
     return true;
 }
 
@@ -123,34 +129,46 @@ bool BlackjackGame::split(size_t handIndex) {
     }
 
     BlackjackHand* originalHand = playerHands[handIndex].get();
-    if (originalHand->getCards().size() != 2) {
-        std::cout << "Cannot split hand with more than two cards." << std::endl;
+    if (originalHand->getCards().size() != 2 || !originalHand->isSplittable()) {
+        std::cout << "Cannot split hand." << std::endl;
         return false;
     }
 
-    // Create a new hand with the second card from the original hand with the same owner
+    // Split cards into two hands
     Card firstCard = originalHand->getCards()[0];
     Card secondCard = originalHand->getCards()[1];
     originalHand->clearHand();
     auto newHand = std::make_unique<BlackjackHand>(originalHand->owner);
+
     originalHand->addCard(firstCard);
+    originalHand->addCard(deck.drawCard());
+    originalHand->isActive = true; // Mark the original hand as active
+
     newHand->addCard(secondCard);
+    newHand->addCard(deck.drawCard());
     newHand->betAmount = originalHand->betAmount;
+    newHand->isActive = true; // Ensure the new hand is active
 
     // Add the new hand to the player's hands
-    playerHands.push_back(std::move(newHand));
+    playerHands.insert(playerHands.begin() + handIndex + 1, std::move(newHand));
+
+    printHands();
     return true;
 }
 
 // Prompts the player to choose an action
 void BlackjackGame::promptPlayerAction(Player* player) {
-    for (size_t i = 0; i < playerHands.size(); ++i) {
-        if ((playerHands[i]->owner == player) && (playerHands[i]->isActive)) {
-            if (playerHands[i]->isSplittable()) {
-                std::cout << "Choose action for hand " << i + 1 << ": (hit/stand/double/split)" << std::endl;
+    size_t i = 0;
+    while (i < playerHands.size()) {
+        BlackjackHand* hand = playerHands[i].get();
+        if (hand->owner == player && hand->isActive) {
+            std::cout << "Choose action for hand " << i + 1 << ": ";
+            if (hand->isSplittable()) {
+                std::cout << "(hit/stand/double/split)" << std::endl;
             } else {
-                std::cout << "Choose action for hand " << i + 1 << ": (hit/stand/double)" << std::endl;
+                std::cout << "(hit/stand/double)" << std::endl;
             }
+
             std::string action;
             std::cin >> action;
 
@@ -159,16 +177,25 @@ void BlackjackGame::promptPlayerAction(Player* player) {
             } else if (action == "stand") {
                 stand(i);
             } else if (action == "double") {
-                doubleDown(i);
-            } else if (action == "split" && playerHands[i]->isSplittable()) {
-                split(i);
+                if (player->getBalance() < hand->betAmount) {
+                    std::cout << "Insufficient balance to double down." << std::endl;
+                } else {
+                    doubleDown(i);
+                }
+            } else if (action == "split" && hand->isSplittable()) {
+                if (split(i)) {
+                    // No need to increment `i` since the original hand needs reprocessing
+                    continue;
+                }
             } else {
                 std::cout << "Invalid action. Please choose again." << std::endl;
-                --i; // Retry the same hand
+                continue;
             }
         }
+        i++;
     }
 }
+
 
 // Dealer's turn
 int BlackjackGame::dealersTurn() {
@@ -204,14 +231,128 @@ std::vector<int> BlackjackGame::getHandValues() const {
     return handValues;
 }
 
+// check results and update player balance
+void BlackjackGame::resolveBets() {
+    int dealerValue = dealerHand->calculateValue();
+
+    for (auto& hand : playerHands) {
+        Player* player = hand->owner;
+        double bet = hand->betAmount;
+        int playerValue = hand->calculateValue();
+
+        std::cout << "Player " << player->getName() << "'s hand value: " << playerValue << std::endl;
+
+        if (playerValue > 21) {
+            std::cout << "Player " << player->getName() << " busts and loses $" << bet << "!" << std::endl;
+        } else if (dealerValue > 21 || playerValue > dealerValue) {
+            double payout = bet * 2;  // Standard payout
+            player->addBalance(payout);
+            std::cout << "Player " << player->getName() << " wins $" << payout << "!" << std::endl;
+        } else if (playerValue == dealerValue) {
+            player->addBalance(bet);  // Return the original bet
+            std::cout << "Player " << player->getName() << " pushes and keeps $" << bet << "." << std::endl;
+        } else {
+            std::cout << "Dealer wins against player " << player->getName() << "!" << std::endl;
+        }
+    }
+}
+
+
+
 // Starts the Blackjack game
 void BlackjackGame::startGame() {
-    std::cout << "Starting Blackjack game..." << std::endl;
+    std::cout << "\n=== Starting New Game ===\n";
+}
+
+// Play a round of Blackjack
+void BlackjackGame::playRound() {
+    // Check if there are any players
+    if (playerHands.empty()) {
+        std::cout << "No players at the table." << std::endl;
+        return;
+    }
+    startGame();
+
+    // Prompt players to place bets
+    for (auto& hand : playerHands) {
+        Player* player = hand->owner;
+        double bet;
+        std::cout << "Balance: $" << player->getBalance() << std::endl;
+        while (true) {
+            std::cout << player->getName() << ", place your bet (min: $" << minBet << ", max: $" << maxBet << "): ";
+            
+            if (!(std::cin >> bet)) {  // Check for non-numeric input
+                std::cin.clear();  // Clear error flag
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // Discard invalid input
+                std::cout << "Invalid input. Please enter a number." << std::endl;
+                continue;
+            }
+
+            // Check if bet is within the allowed range
+            if (bet < minBet || bet > maxBet) {
+                std::cout << "Bet must be between $" << minBet << " and $" << maxBet << "." << std::endl;
+                continue;
+            }
+
+            // Check if player has enough balance
+            if (bet > player->getBalance()) {
+                std::cout << "You don't have enough balance to place this bet!" << std::endl;
+                continue;
+            }
+
+            // Valid input
+            break;
+        }
+
+        // Deduct bet from player balance and set it for the hand
+        player->placeBet(bet);
+        hand->setBetAmount(bet);
+        std::cout << player->getName() << " bet $" << bet << "." << std::endl;
+    }
+
+
+    // Deal cards
+    dealCards();
+    printHands();
+
+    // Proceed with Blackjack checks, player actions, and dealer turn
+    size_t blackjackIndex = checkBlackjack();
+    if (blackjackIndex == -1) {  // Dealer blackjack
+        resolveBets();
+        endGame();
+        return;
+    } else if (blackjackIndex != -2) {  // Player blackjack
+        resolveBets();
+        endGame();
+        return;
+    }
+
+    for (auto& hand : playerHands) {
+        promptPlayerAction(hand->owner);
+    }
+
+    int dealerValue = dealersTurn();
+    std::cout << "Dealer's hand value: " << dealerValue << std::endl;
+    resolveBets();
+
+    // Delete all player hands and create new one for each unique player
+    std::vector<Player*> uniquePlayers;
+    for (const auto& hand : playerHands) {
+        if (std::find(uniquePlayers.begin(), uniquePlayers.end(), hand->owner) == uniquePlayers.end()) {
+            uniquePlayers.push_back(hand->owner);
+        }
+    }
+    playerHands.clear();
+    for (Player* player : uniquePlayers) {
+        addPlayerHand(player);
+    }
+
+    endGame();
 }
 
 // Ends the Blackjack game
 void BlackjackGame::endGame() {
-    std::cout << "Ending Blackjack game..." << std::endl;
+    std::cout << "\n=== Game Over ===" << std::endl;
 }
 
 // Destructor

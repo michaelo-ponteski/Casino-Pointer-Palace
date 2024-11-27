@@ -44,5 +44,5 @@ std::string Dealer::getName() const {
 
 // Destructor
 Dealer::~Dealer() {
-    std::cout << "Dealer " << name << " destroyed." << std::endl;
+    // std::cout << "Dealer " << name << " destroyed." << std::endl;
 }

@@ -35,6 +35,7 @@ classDiagram
         +placeBet(double) bool
         +addBalance(double) void
         +getBalance() double
+        +getName() string
         #updateStats(GameResult) void
     }
 
@@ -48,13 +49,44 @@ classDiagram
     }
 
     class BlackjackGame {
-        -vector~BlackjackHand~ playerHands
         -BlackjackHand dealerHand
-        +hit(Player) void
-        +stand(Player) void
-        +doubleDown(Player) bool
-        +split(Player) bool
-        -checkBlackjack() bool
+        -Dealer dealer
+        +hit(size_t) void
+        +stand(size_t) void
+        +doubleDown(size_t) bool
+        +split(size_t) bool
+        -checkBlackjack() size_t
+        +endGame() override void
+        +playRound() void
+        +startGame() override void
+        +resolveBets() void
+        +getHandValues() const vector~int~
+        +dealersTurn() int
+        +promptPlayerAction(Player) void
+        +printHands() const void
+        +dealCards() override void
+        +addPlayerHand(Player) void
+    }
+
+    class BlackjackHand {
+        -vector~Card~ cards
+        -Player* owner
+        -double betAmount
+        -bool isActive
+        +setBetAmount(double) void
+        +addCard(Card) void
+        +calculateValue() int
+        +isSplittable() bool
+        +getCards() vector~Card~ const
+        +clearHand() void
+    }
+
+    class DealerHand {
+        -bool firstCardHidden
+        +shouldHit() const bool
+        +getCards() vector~Card~
+        +getVisibleValue() const int
+        +revealHiddenCard() void
     }
 
     class RouletteGame {
@@ -154,6 +186,15 @@ classDiagram
         +shuffle() void
         +drawCard() Card
         +resetDeck() void
+        +isEmpty() bool
+    }
+
+    class Card{
+        -Suit suit
+        -Rank rank
+        +getSuit() Suit
+        +getRank() Rank
+        +toString() string
     }
 
     class Bet {
@@ -172,12 +213,15 @@ classDiagram
     Casino o-- Player : has
     Player --> PlayerStats : tracks
     CardGame --> Deck : uses
+    Deck --> Card : contains
     Player --> Bet : places
     CardGame --> Dealer : requires
     PlayerStats *-- BlackjackStats : contains
     PlayerStats *-- RouletteStats : contains
     PlayerStats *-- BaccaratStats : contains
     PlayerStats o-- GameSession : records
+    BlackjackGame *-- BlackjackHand : contains
+    DealerHand <|-- BlackjackHand : inherits
 
 
 ```

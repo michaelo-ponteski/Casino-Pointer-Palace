@@ -18,17 +18,23 @@ void Deck::shuffle() {
 
 // Draws a card from the top of the deck
 Card Deck::drawCard() {
+    if (cards.empty()) {
+        resetDeck();
+        shuffle();
+    }
     Card topCard = cards.back();
     cards.pop_back();
     return topCard;
 }
 
-// Resets the deck to the full set of cards
+// Resets the deck to the full set of cards (6 decks)
 void Deck::resetDeck() {
     cards.clear();
-    for (int suit = 0; suit < 4; suit++) {
-        for (int rank = 0; rank < 13; rank++) {
-            cards.push_back(Card(static_cast<Suit>(suit), static_cast<Rank>(rank)));
+    for (int dck = 0; dck < 6; dck++){
+        for (int suit = 0; suit < 4; suit++) {
+            for (int rank = 0; rank < 13; rank++) {
+                cards.push_back(Card(static_cast<Suit>(suit), static_cast<Rank>(rank)));
+            }
         }
     }
 }
