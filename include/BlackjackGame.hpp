@@ -44,9 +44,14 @@ public:
 
     std::vector<int> getHandValues() const;  // Get the value of each player hand
 
+    // check results and update player balance
+    void resolveBets();
 
     // Starts the Blackjack game, overriding startGame from Game
     void startGame() override;
+
+    // Play a round of Blackjack
+    void playRound();
 
     // Ends the Blackjack game, overriding endGame from Game
     void endGame() override;

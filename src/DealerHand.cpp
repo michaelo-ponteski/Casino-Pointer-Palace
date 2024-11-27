@@ -4,7 +4,7 @@
 #include "../include/Card.hpp"
 
 // Constructor - pass nullptr as Player* since dealer isn't a player
-DealerHand::DealerHand(Dealer* dealer) : BlackjackHand(nullptr), firstCardHidden(true) {}
+DealerHand::DealerHand(Dealer* dealer) : BlackjackHand(nullptr), firstCardHidden(false) {}
 
 // Dealer specific
 bool DealerHand::shouldHit() const {

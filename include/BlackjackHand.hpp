@@ -17,6 +17,9 @@ public:
     // Constructor
     BlackjackHand(Player* player);
 
+    // set bet amount
+    void setBetAmount(double amount);
+
     // Adds a card to the hand
     void addCard(const Card& card);
 

@@ -23,8 +23,8 @@ public:
     // Constructor
     Player(int id, const std::string& playerName, double initialBalance);
 
-    // Places a bet of the specified amount, returns true if successful
-    bool placeBet(double amount, BetType betType);
+    // Places a bet of the specified amount
+    void placeBet(double amount);
 
     // Adds a specified amount to the player's balance
     void addBalance(double amount);

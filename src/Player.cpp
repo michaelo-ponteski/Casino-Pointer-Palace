@@ -9,23 +9,19 @@ Player::Player(int id, const std::string& playerName, double initialBalance)
     std::cout << "Player " << name << " created." << std::endl;
 }
 
-// Places a bet of the specified amount, returns true if successful
-bool Player::placeBet(double amount, BetType betType) {
+// Places a bet of the specified amount
+void Player::placeBet(double amount) {
     if (amount > balance) {
-        std::cout << "Insufficient balance to place bet." << std::endl;
-        return false;
+        std::cout << "Insufficient balance to place this bet." << std::endl;
+    } else {
+        balance -= amount;
     }
-    Bet* newBet = new Bet(amount, betType, this);
-    bets.push_back(newBet);
-    balance -= amount;
-    std::cout << name << " placed a bet of $" << amount << "." << std::endl;
-    return true;
 }
 
 // Adds a specified amount to the player's balance
 void Player::addBalance(double amount) {
     balance += amount;
-    std::cout << name << " added $" << amount << " to their balance." << std::endl;
+    // std::cout << name << "'s balance is now $" << balance << "." << std::endl;
 }
 
 // Returns the current balance of the player

@@ -6,13 +6,18 @@
 
 // Constructor
 BlackjackHand::BlackjackHand(Player* player) : owner(player), betAmount(0.0), isActive(true) {
-    std::cout << "Blackjack hand created." << std::endl;
+    //std::cout << "Blackjack hand created." << std::endl;
+}
+
+// set bet amount
+void BlackjackHand::setBetAmount(double amount) {
+    betAmount = amount;
 }
 
 // Adds a card to the hand
 void BlackjackHand::addCard(const Card& card) {
     cards.push_back(card);
-    std::cout << "Card added to hand." << std::endl;
+    // std::cout << "Card added to hand." << std::endl;
 }
 
 // Calculates the total value of the hand
@@ -72,10 +77,10 @@ const std::vector<Card>& BlackjackHand::getCards() const {
 // Clears the hand for a new round
 void BlackjackHand::clearHand() {
     cards.clear();
-    std::cout << "Hand cleared." << std::endl;
+    // std::cout << "Hand cleared." << std::endl;
 }
 
 // Destructor
 BlackjackHand::~BlackjackHand() {
-    std::cout << "Blackjack hand destroyed." << std::endl;
+    // std::cout << "Blackjack hand destroyed." << std::endl;
 }
