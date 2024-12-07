@@ -22,8 +22,5 @@ void CardGame::shuffleDeck() {
 
 // Destructor
 CardGame::~CardGame() {
-    // Free memory allocated for community cards
-    for (Card* card : communityCards) {
-        delete card;
-    }
+    // std::cout << "Card game " << getGameName() << " destroyed." << std::endl;
 }

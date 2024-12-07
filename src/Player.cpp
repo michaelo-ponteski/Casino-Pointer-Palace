@@ -46,8 +46,5 @@ std::string Player::getName() const {
 
 // Destructor
 Player::~Player() {
-    for (Bet* bet : bets) {
-        delete bet;
-    }
-    std::cout << "Player " << name << " destroyed." << std::endl;
+    // std::cout << "Player " << name << " destroyed." << std::endl;
 }

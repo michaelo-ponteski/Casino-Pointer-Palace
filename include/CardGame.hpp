@@ -11,7 +11,6 @@ class CardGame : public Game {
 protected:
     Deck deck;                               // Deck of cards used in the game
     Dealer dealer;                           // Dealer for managing game operations
-    std::vector<Card*> communityCards;       // Community cards for games that use them (e.g., Poker)
 
 
 public:

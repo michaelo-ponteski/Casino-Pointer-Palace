@@ -1,42 +1,47 @@
-// #ifndef ROULETTEGAME_HPP
-// #define ROULETTEGAME_HPP
+#ifndef ROULETTEGAME_HPP
+#define ROULETTEGAME_HPP
 
-// #include <vector>
-// #include <string>
-// #include "Game.hpp"
-// #include "Bet.hpp"
-// #include "RouletteWheel.hpp"
+#include "Game.hpp"
+#include <string>
+#include <vector>
 
-// class RouletteGame : public Game {
-// private:
-//     int winningNumber;                     // The winning number for each spin
-//     std::vector<BetType> betTypes;         // Types of bets available (e.g., number, color, even/odd)
-//     RouletteWheel wheel;                   // The roulette wheel for generating the winning number
+class RouletteGame : public Game {
+public:
+    enum BetType {
+        RED,
+        BLACK,
+        ODD,
+        EVEN,
+        HIGH,
+        LOW,
+        STRAIGHT_UP,
+        STREET
+    };
 
-//     // Calculates the payout based on the type of bet placed
-//     double calculatePayout(const Bet& bet) const;
+    struct Bet {
+        BetType type;
+        int amount;
+        int number; // Only used for STRAIGHT_UP and STREET bets
+    };
 
-// public:
-//     // Constructor
-//     RouletteGame(double minBetAmount, double maxBetAmount);
+    RouletteGame(Player* player);
+    virtual ~RouletteGame();
 
-//     // Spins the wheel and returns the winning number
-//     int spinWheel();
+    void placeBet();
+    void spinWheel();
+    void resolveBets();
+    void playRound();
 
-//     // Place a bet on a specific number, returns true if the bet is accepted
-//     bool placeBetOnNumber(Player* player, int number);
+    void startGame() override;
+    void endGame() override;
 
-//     // Place a bet on a color (e.g., red or black), returns true if the bet is accepted
-//     bool placeBetOnColor(Player* player, const std::string& color);
+private:
+    std::vector<Bet> bets;
+    int winningNumber;
+    std::string winningColor;
+    bool isOdd(int number);
+    bool isHigh(int number);
+    std::string getColor(int number);
+};
 
-//     // Starts the Roulette game, overriding startGame from Game
-//     void startGame() override;
-
-//     // Ends the Roulette game, overriding endGame from Game
-//     void endGame() override;
-
-//     // Destructor
-//     ~RouletteGame();
-// };
-
-// #endif // ROULETTEGAME_HPP
+#endif // ROULETTEGAME_HPP
