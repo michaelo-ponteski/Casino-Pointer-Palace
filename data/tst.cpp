@@ -10,11 +10,12 @@
 
 void testRoulette() {
     // Test a full round of Roulette
-    Player player(1, "Alice", 1000.0);
+    Player player(1, "Janusz", 1000.0, false);
     RouletteGame game(&player);
     game.startGame();
     while(true) {
         game.playRound();
+        player.stats.saveToFile();
         std::cout << "Press ENTER to play another round" << std::endl;
         // Clear the input buffer
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -31,7 +32,7 @@ void testBlackjack() {
     Dealer dealer(420, "Miłosz");
     BlackjackGame game(10.0, 100.0, dealer);
     
-    Player player1(69, "Janusz", 1000.0);
+    Player player1(69, "Janusz", 1000.0, false);
     game.addPlayerHand(&player1);
     while(true) {
         game.playRound();

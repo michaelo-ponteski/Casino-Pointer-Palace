@@ -4,9 +4,12 @@
 #include <string>
 
 // Constructor
-Player::Player(int id, const std::string& playerName, double initialBalance)
-    : playerId(id), name(playerName), balance(initialBalance) {
-    std::cout << "Player " << name << " created." << std::endl;
+Player::Player(int id, const std::string& playerName, double initialBalance, bool existingPlayer) : playerId(id), name(playerName), balance(initialBalance), stats(playerName, existingPlayer) {
+    if (existingPlayer) {
+        std::cout << "Welcome back, " << name << "!" << std::endl;
+    } else {
+        std::cout << "Welcome, " << name << "!" << std::endl;
+    }
 }
 
 // Places a bet of the specified amount

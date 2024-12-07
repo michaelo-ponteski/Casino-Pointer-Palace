@@ -1,0 +1,41 @@
+[
+    {
+        "playerName": "Alice",
+        "stats": {
+            "biggestLoss": 23.0,
+            "highestWin": 200.0,
+            "lastPlayedDate": 1733597900,
+            "totalGamesPlayed": 6,
+            "totalLosses": 34.0,
+            "totalWinnings": 344.0
+        }
+    },
+    {
+        "playerName": "Bob",
+        "stats": {
+            "biggestLoss": 0,
+            "highestWin": 0,
+            "lastPlayedDate": 1733596979,
+            "totalGamesPlayed": 0,
+            "totalLosses": 0,
+            "totalWinnings": 0
+        }
+    },
+    {
+        "playerName": "Janusz",
+        "stats": {
+            "biggestLoss": 11.0,
+            "highestWin": 0.0,
+            "lastPlayedDate": 1733599510,
+            "rouletteStats": {
+                "favouriteColor": "None",
+                "losses": 0,
+                "totalSpins": 0,
+                "wins": 0
+            },
+            "totalGamesPlayed": 1,
+            "totalLosses": 11.0,
+            "totalWinnings": 0.0
+        }
+    }
+]
