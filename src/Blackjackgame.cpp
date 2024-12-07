@@ -90,7 +90,6 @@ void BlackjackGame::hit(size_t handIndex) {
         std::cout << card.toString() << " ";
     }
     std::cout << std::endl;
-    hand->isActive = false;
 }
 
 // Player decides to stand
@@ -118,6 +117,7 @@ bool BlackjackGame::doubleDown(size_t handIndex) {
     }
     playerHands[handIndex]->betAmount *= 2;
     hit(handIndex);
+    playerHands[handIndex]->isActive = false;
     return true;
 }
 
@@ -162,34 +162,41 @@ void BlackjackGame::promptPlayerAction(Player* player) {
     while (i < playerHands.size()) {
         BlackjackHand* hand = playerHands[i].get();
         if (hand->owner == player && hand->isActive) {
-            std::cout << "Choose action for hand " << i + 1 << ": ";
-            if (hand->isSplittable()) {
-                std::cout << "(hit/stand/double/split)" << std::endl;
-            } else {
-                std::cout << "(hit/stand/double)" << std::endl;
-            }
-
-            std::string action;
-            std::cin >> action;
-
-            if (action == "hit") {
-                hit(i);
-            } else if (action == "stand") {
-                stand(i);
-            } else if (action == "double") {
-                if (player->getBalance() < hand->betAmount) {
-                    std::cout << "Insufficient balance to double down." << std::endl;
+            bool continueHand = true;
+            while (continueHand) {
+                std::cout << "Choose action for hand " << i + 1 << ": ";
+                if (hand->isSplittable()) {
+                    std::cout << "(hit/stand/double/split)" << std::endl;
                 } else {
-                    doubleDown(i);
+                    std::cout << "(hit/stand/double)" << std::endl;
                 }
-            } else if (action == "split" && hand->isSplittable()) {
-                if (split(i)) {
-                    // No need to increment `i` since the original hand needs reprocessing
-                    continue;
+
+                std::string action;
+                std::cin >> action;
+
+                if (action == "hit") {
+                    hit(i);
+                    if (hand->isBusted()) {
+                        std::cout << "Hand " << i + 1 << " is busted." << std::endl;
+                        continueHand = false;
+                    }
+                } else if (action == "stand") {
+                    stand(i);
+                    continueHand = false;
+                } else if (action == "double") {
+                    if (player->getBalance() < hand->betAmount) {
+                        std::cout << "Insufficient balance to double down." << std::endl;
+                    } else {
+                        doubleDown(i);
+                        continueHand = false;
+                    }
+                } else if (action == "split" && hand->isSplittable()) {
+                    if (split(i)) {
+                        // No need to increment `i` since the original hand needs reprocessing
+                    }
+                } else {
+                    std::cout << "Invalid action. Please choose again." << std::endl;
                 }
-            } else {
-                std::cout << "Invalid action. Please choose again." << std::endl;
-                continue;
             }
         }
         i++;
