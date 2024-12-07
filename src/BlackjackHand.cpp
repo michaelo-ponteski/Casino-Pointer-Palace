@@ -69,6 +69,11 @@ bool BlackjackHand::isSplittable() const {
     return cards[0].getRank() == cards[1].getRank();
 }
 
+// Check if busted
+bool BlackjackHand::isBusted() const {
+    return calculateValue() > 21;
+}
+
 // Returns the cards in the hand
 const std::vector<Card>& BlackjackHand::getCards() const {
     return cards;

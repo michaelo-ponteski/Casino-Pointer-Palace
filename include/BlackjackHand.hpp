@@ -29,6 +29,9 @@ public:
     // Checks if the hand is splittable
     bool isSplittable() const;
 
+    // Check if busted
+    bool isBusted() const;
+
     // Returns the cards in the hand
     const std::vector<Card>& getCards() const;
 

@@ -49,7 +49,4 @@ double Game::getMaxBet() const {
 
 // Destructor
 Game::~Game() {
-    for (Player* player : activePlayers) {
-        delete player;
-    }
 }

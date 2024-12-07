@@ -10,7 +10,7 @@ protected:
     std::string gameName;                 // Name of the game
     double minBet;                        // Minimum bet allowed in the game
     double maxBet;                        // Maximum bet allowed in the game
-    std::vector<Player*> activePlayers;   // List of players currently active in the game
+    Player* gamePlayer;                   // Pointer to the player who is in the game
 
     // Validates if a given bet amount is within the acceptable bet range
     bool validateBet(double amount) const;
@@ -27,6 +27,9 @@ public:
 
     // Places a bet for a given player; returns true if the bet is valid and accepted
     bool placeBet(Player* player, double amount);
+
+    // Plays a round of the game; virtual for possible override by derived classes
+    virtual void playRound() = 0;
 
     // Getter for game name
     std::string getGameName() const;

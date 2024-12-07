@@ -12,7 +12,7 @@ private:
     int playerId;                   // Unique identifier for the player
     std::string name;               // Name of the player
     double balance;                 // Player's balance
-    std::vector<Bet*> bets;         // Bets placed by the player
+    //std::vector<Bet*> bets;         // Bets placed by the player
     //PlayerStats stats;              // Player's statistics and history
 
 protected:
