@@ -1,5 +1,4 @@
 #include "../include/Player.hpp"
-#include "../include/Bet.hpp"
 #include <iostream>
 #include <string>
 
@@ -41,11 +40,6 @@ int Player::getPlayerId() const {
 std::string Player::getName() const {
     return name;
 }
-
-// Updates player stats based on the game result
-// void Player::updateStats(GameResult result) {
-//     stats.updateStats(result);
-// }
 
 // Destructor
 Player::~Player() {
