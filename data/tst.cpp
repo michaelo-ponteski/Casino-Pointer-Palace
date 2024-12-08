@@ -47,6 +47,8 @@ void testBlackjack() {
 }
 
 int main() {
-    testBlackjack();
+    // pick one
+    // testBlackjack();
+    // testRoulette();
     return 0;
 }
