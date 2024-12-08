@@ -3,22 +3,50 @@
         "playerName": "Alice",
         "stats": {
             "biggestLoss": 23.0,
-            "highestWin": 200.0,
-            "lastPlayedDate": 1733597900,
-            "totalGamesPlayed": 6,
+            "blackjackStats": {
+                "blackjacks": 0,
+                "busts": 0,
+                "losses": 0,
+                "pushes": 0,
+                "totalHands": 1,
+                "wins": 1
+            },
+            "highestWin": 600.0,
+            "lastPlayedDate": 1733681321,
+            "rouletteStats": {
+                "favouriteColor": "Red",
+                "losses": 2,
+                "totalSpins": 4,
+                "wins": 2
+            },
+            "totalGamesPlayed": 8,
             "totalLosses": 34.0,
-            "totalWinnings": 344.0
+            "totalWinnings": 988.0
         }
     },
     {
         "playerName": "Bob",
         "stats": {
-            "biggestLoss": 0,
-            "highestWin": 0,
-            "lastPlayedDate": 1733596979,
-            "totalGamesPlayed": 0,
-            "totalLosses": 0,
-            "totalWinnings": 0
+            "biggestLoss": 111.0,
+            "blackjackStats": {
+                "blackjacks": 0,
+                "busts": 1,
+                "losses": 0,
+                "pushes": 0,
+                "totalHands": 1,
+                "wins": 0
+            },
+            "highestWin": 0.0,
+            "lastPlayedDate": 1733681766,
+            "rouletteStats": {
+                "favouriteColor": "Black",
+                "losses": 3,
+                "totalSpins": 4,
+                "wins": 1
+            },
+            "totalGamesPlayed": 2,
+            "totalLosses": 133.0,
+            "totalWinnings": 0.0
         }
     },
     {
@@ -27,23 +55,48 @@
             "biggestLoss": 50.0,
             "blackjackStats": {
                 "blackjacks": 0,
-                "busts": 0,
+                "busts": 1,
                 "losses": 0,
                 "pushes": 0,
-                "totalHands": 0,
-                "wins": 0
-            },
-            "highestWin": 44.0,
-            "lastPlayedDate": 1733672917,
-            "rouletteStats": {
-                "favouriteColor": "Black",
-                "losses": 2,
-                "totalSpins": 3,
+                "totalHands": 2,
                 "wins": 1
             },
-            "totalGamesPlayed": 3,
-            "totalLosses": 61.0,
-            "totalWinnings": 44.0
+            "highestWin": 490.0,
+            "lastPlayedDate": 1733681113,
+            "rouletteStats": {
+                "favouriteColor": "Red",
+                "losses": 3,
+                "totalSpins": 5,
+                "wins": 2
+            },
+            "totalGamesPlayed": 7,
+            "totalLosses": 83.0,
+            "totalWinnings": 578.0
+        }
+    },
+    {
+        "playerName": "Charlie123",
+        "stats": {
+            "biggestLoss": 1554.0,
+            "blackjackStats": {
+                "blackjacks": 0,
+                "busts": 1,
+                "losses": 2,
+                "pushes": 0,
+                "totalHands": 3,
+                "wins": 0
+            },
+            "highestWin": 0.0,
+            "lastPlayedDate": 1733681603,
+            "rouletteStats": {
+                "favouriteColor": "Red",
+                "losses": 2,
+                "totalSpins": 2,
+                "wins": 0
+            },
+            "totalGamesPlayed": 5,
+            "totalLosses": 4010.0,
+            "totalWinnings": 0.0
         }
     }
 ]

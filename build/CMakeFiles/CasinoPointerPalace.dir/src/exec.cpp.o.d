@@ -251,4 +251,15 @@ CMakeFiles/CasinoPointerPalace.dir/src/exec.cpp.o: \
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/BlackjackHand.hpp \
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/DealerHand.hpp \
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/Player.hpp \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/RouletteGame.hpp
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/RouletteGame.hpp \
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/Casino.hpp \
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/../include/Game.hpp \
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/../include/Player.hpp \
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/../include/BlackjackGame.hpp \
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/../include/RouletteGame.hpp \
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/../include/nlohmann/json.hpp \
+ /usr/include/c++/11/fstream \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
+ /usr/include/c++/11/bits/fstream.tcc \
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/../include/Dealer.hpp
