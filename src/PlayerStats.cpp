@@ -27,6 +27,7 @@ void PlayerStats::resetStats() {
     biggestLoss = 0.0;
     lastPlayedDate = std::time(nullptr);
     rouletteStats.resetStats();
+    blackjackStats.resetStats();
 }
 
 // Save to file
@@ -85,7 +86,8 @@ nlohmann::json PlayerStats::toJson() const {
         {"highestWin", highestWin},
         {"biggestLoss", biggestLoss},
         {"lastPlayedDate", lastPlayedDate},
-        {"rouletteStats", rouletteStats.toJson()}
+        {"rouletteStats", rouletteStats.toJson()},
+        {"blackjackStats", blackjackStats.toJson()}
     };
 }
 
@@ -98,6 +100,7 @@ void PlayerStats::fromJson(const nlohmann::json& j) {
     biggestLoss = j.at("biggestLoss").get<double>();
     lastPlayedDate = j.at("lastPlayedDate").get<time_t>();
     rouletteStats.fromJson(j.at("rouletteStats"));
+    blackjackStats.fromJson(j.at("blackjackStats"));
 }
 
 // Updates player stats based on the game result
@@ -108,7 +111,7 @@ void PlayerStats::updateStats(double amountWon) {
         if (amountWon > highestWin) {
             highestWin = amountWon;
         }
-    } else {
+    } else if (amountWon < 0) {
         totalLosses += -amountWon;
         if (-amountWon > biggestLoss) {
             biggestLoss = -amountWon;

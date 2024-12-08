@@ -24,18 +24,26 @@
     {
         "playerName": "Janusz",
         "stats": {
-            "biggestLoss": 11.0,
-            "highestWin": 0.0,
-            "lastPlayedDate": 1733599510,
+            "biggestLoss": 50.0,
+            "blackjackStats": {
+                "blackjacks": 0,
+                "busts": 1,
+                "losses": 0,
+                "pushes": 0,
+                "totalHands": 3,
+                "wins": 2
+            },
+            "highestWin": 200.0,
+            "lastPlayedDate": 1733667216,
             "rouletteStats": {
                 "favouriteColor": "None",
                 "losses": 0,
                 "totalSpins": 0,
                 "wins": 0
             },
-            "totalGamesPlayed": 1,
-            "totalLosses": 11.0,
-            "totalWinnings": 0.0
+            "totalGamesPlayed": 3,
+            "totalLosses": 50.0,
+            "totalWinnings": 222.0
         }
     }
 ]

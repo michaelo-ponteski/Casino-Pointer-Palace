@@ -1,11 +1,8 @@
 #ifndef ROULETTESTATS_HPP
 #define ROULETTESTATS_HPP
 
-#include <vector>
-#include <map>
 #include <string>
 #include "../include/nlohmann/json.hpp"
-#include <ctime>
 
 class RouletteStats {
 public:

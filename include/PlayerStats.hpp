@@ -7,6 +7,7 @@
 #include "../include/nlohmann/json.hpp"
 #include <ctime>
 #include "../include/RouletteStats.hpp"
+#include "../include/BlackjackStats.hpp"
 
 class PlayerStats {
 private:
@@ -33,7 +34,7 @@ private:
 public:
     // game specific stats
     RouletteStats rouletteStats;                    // Roulette specific stats
-
+    BlackjackStats blackjackStats;                  // Blackjack specific stats
     
     // Constructor
     PlayerStats(std::string name, bool existingPlayer = false);

@@ -6,8 +6,10 @@
 #include <limits>
 
 // Constructor
-BlackjackGame::BlackjackGame(double minBetAmount, double maxBetAmount, Dealer& gameDealer) : CardGame("Blackjack", minBetAmount, maxBetAmount, gameDealer), dealer(gameDealer) {
+BlackjackGame::BlackjackGame(Player* p, double minBetAmount, double maxBetAmount, Dealer& gameDealer) : CardGame("Blackjack", minBetAmount, maxBetAmount, gameDealer), dealer(gameDealer) {
     dealerHand = std::make_unique<DealerHand>(&dealer);
+    gamePlayer = p;
+    addPlayerHand(p);
 }
 
 // Checks if any hand has a blackjack (initial two cards total 21)
@@ -251,15 +253,31 @@ void BlackjackGame::resolveBets() {
 
         if (playerValue > 21) {
             std::cout << "Player " << player->getName() << " busts and loses $" << bet << "!" << std::endl;
+            player->stats.blackjackStats.updateStats(false, false, false, true); // Update bust stat
+            player->stats.updateStats(-bet);
         } else if (dealerValue > 21 || playerValue > dealerValue) {
-            double payout = bet * 2;  // Standard payout
-            player->addBalance(payout);
-            std::cout << "Player " << player->getName() << " wins $" << payout << "!" << std::endl;
+            if (playerValue == 21 && hand->getCards().size() == 2) {
+                double payout = bet * 2.5;  // Blackjack payout
+                player->addBalance(payout);
+                std::cout << "Player " << player->getName() << " wins $" << payout << "!" << std::endl;
+                player->stats.blackjackStats.updateStats(true, false, true, false); // Update blackjack stat
+                player->stats.updateStats(payout);
+            } else {
+                double payout = bet * 2;  // Standard payout
+                player->addBalance(payout);
+                std::cout << "Player " << player->getName() << " wins $" << payout << "!" << std::endl;
+                player->stats.blackjackStats.updateStats(true, false, false, false); // Update win stat
+                player->stats.updateStats(payout);
+            }
         } else if (playerValue == dealerValue) {
             player->addBalance(bet);  // Return the original bet
             std::cout << "Player " << player->getName() << " pushes and keeps $" << bet << "." << std::endl;
+            player->stats.blackjackStats.updateStats(false, true, false, false); // Update push stat
+            player->stats.updateStats(0);
         } else {
             std::cout << "Dealer wins against player " << player->getName() << "!" << std::endl;
+            player->stats.blackjackStats.updateStats(false, false, false, false); // Update loss stat
+            player->stats.updateStats(-bet);
         }
     }
 }

@@ -30,12 +30,12 @@ void testRoulette() {
 void testBlackjack() {
     // Test a full round of Blackjack
     Dealer dealer(420, "Miłosz");
-    BlackjackGame game(10.0, 100.0, dealer);
-    
     Player player1(69, "Janusz", 1000.0, false);
-    game.addPlayerHand(&player1);
+    BlackjackGame game(&player1, 10.0, 1000.0, dealer);
+    
     while(true) {
         game.playRound();
+        player1.stats.saveToFile();
         std::cout << "Press ENTER to play another round" << std::endl;
         // Clear the input buffer
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -47,6 +47,6 @@ void testBlackjack() {
 }
 
 int main() {
-    testRoulette();
+    testBlackjack();
     return 0;
 }
