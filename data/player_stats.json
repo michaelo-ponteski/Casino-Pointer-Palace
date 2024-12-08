@@ -27,23 +27,23 @@
             "biggestLoss": 50.0,
             "blackjackStats": {
                 "blackjacks": 0,
-                "busts": 1,
+                "busts": 0,
                 "losses": 0,
                 "pushes": 0,
-                "totalHands": 3,
-                "wins": 2
-            },
-            "highestWin": 200.0,
-            "lastPlayedDate": 1733667216,
-            "rouletteStats": {
-                "favouriteColor": "None",
-                "losses": 0,
-                "totalSpins": 0,
+                "totalHands": 0,
                 "wins": 0
             },
+            "highestWin": 44.0,
+            "lastPlayedDate": 1733672917,
+            "rouletteStats": {
+                "favouriteColor": "Black",
+                "losses": 2,
+                "totalSpins": 3,
+                "wins": 1
+            },
             "totalGamesPlayed": 3,
-            "totalLosses": 50.0,
-            "totalWinnings": 222.0
+            "totalLosses": 61.0,
+            "totalWinnings": 44.0
         }
     }
 ]
