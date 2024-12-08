@@ -6,7 +6,7 @@
 // Constructor
 CardGame::CardGame(const std::string& name, double minBetAmount, double maxBetAmount, Dealer gameDealer)
     : Game(name, minBetAmount, maxBetAmount), dealer(gameDealer) {
-    std::cout << "Card game " << name << " created." << std::endl;
+    // std::cout << "Card game " << name << " created." << std::endl;
     deck = Deck();  // Initialize the deck
 }
 

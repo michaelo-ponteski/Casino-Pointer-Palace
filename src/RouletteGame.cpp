@@ -120,12 +120,15 @@ void RouletteGame::spinWheel() {
 void RouletteGame::resolveBets() {
     for (const Bet& bet : bets) {
         bool won = false;
+        std::string color = "None";
         int payout = bet.amount * 2; // Default payout for even money bets
         switch (bet.type) {
             case RED:
+                color = "Red";
                 won = (winningColor == "Red");
                 break;
             case BLACK:
+                color = "Black";
                 won = (winningColor == "Black");
                 break;
             case ODD:
@@ -152,8 +155,12 @@ void RouletteGame::resolveBets() {
         if (won) {
             std::cout << "Bet won! Payout: $" << payout << std::endl;
             gamePlayer->addBalance(payout);
+            gamePlayer->stats.updateStats(payout);
+            gamePlayer->stats.rouletteStats.updateStats(true, color);
         } else {
             std::cout << "Bet lost. $" << bet.amount << " gone" << std::endl;
+            gamePlayer->stats.updateStats(-bet.amount);
+            gamePlayer->stats.rouletteStats.updateStats(false, color);
         }
     }
     // Clear bets after resolving

@@ -18,7 +18,7 @@ private:
 
 public:
     // Constructor
-    BlackjackGame(double minBetAmount, double maxBetAmount, Dealer& gameDealer); // Pass by reference
+    BlackjackGame(Player* p, double minBetAmount, double maxBetAmount, Dealer& gameDealer); // Pass by reference
 
     // Checks if any hand has a blackjack (initial two cards total 21)
     size_t checkBlackjack();

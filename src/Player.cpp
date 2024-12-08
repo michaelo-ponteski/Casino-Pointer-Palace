@@ -1,12 +1,9 @@
 #include "../include/Player.hpp"
-#include "../include/Bet.hpp"
 #include <iostream>
 #include <string>
 
 // Constructor
-Player::Player(int id, const std::string& playerName, double initialBalance)
-    : playerId(id), name(playerName), balance(initialBalance) {
-    std::cout << "Player " << name << " created." << std::endl;
+Player::Player(int id, const std::string& playerName, double initialBalance, bool existingPlayer) : playerId(id), name(playerName), balance(initialBalance), stats(playerName, existingPlayer) {
 }
 
 // Places a bet of the specified amount
@@ -38,11 +35,6 @@ int Player::getPlayerId() const {
 std::string Player::getName() const {
     return name;
 }
-
-// Updates player stats based on the game result
-// void Player::updateStats(GameResult result) {
-//     stats.updateStats(result);
-// }
 
 // Destructor
 Player::~Player() {

@@ -3,25 +3,20 @@
 
 #include <string>
 #include <vector>
-#include "../include/Bet.hpp"
-//#include "PlayerStats.hpp"
-//#include "GameResult.hpp"
+#include "../include/PlayerStats.hpp"
+
 
 class Player {
 private:
     int playerId;                   // Unique identifier for the player
     std::string name;               // Name of the player
     double balance;                 // Player's balance
-    //std::vector<Bet*> bets;         // Bets placed by the player
-    //PlayerStats stats;              // Player's statistics and history
-
-protected:
-    // Updates player stats based on the game result
-    //void updateStats(GameResult result);
 
 public:
+    PlayerStats stats;              // Player statistics
+
     // Constructor
-    Player(int id, const std::string& playerName, double initialBalance);
+    Player(int id, const std::string& playerName, double initialBalance, bool existingPlayer = false);
 
     // Places a bet of the specified amount
     void placeBet(double amount);

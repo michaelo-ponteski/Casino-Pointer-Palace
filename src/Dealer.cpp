@@ -5,7 +5,7 @@
 
 // Constructor
 Dealer::Dealer(int id, const std::string& dealerName) : dealerId(id), name(dealerName), isAvailable(true) {
-    std::cout << "Dealer " << name << " created." << std::endl;
+    // std::cout << "Dealer " << name << " created." << std::endl;
 }
 
 // Sets dealer availability

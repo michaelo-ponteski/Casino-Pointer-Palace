@@ -1,0 +1,25 @@
+{
+    "balance": 10000.0,
+    "players": [
+        {
+            "balance": 1323.0,
+            "id": 1,
+            "name": "Alice"
+        },
+        {
+            "balance": 367.0,
+            "id": 2,
+            "name": "Bob"
+        },
+        {
+            "balance": 2745.0,
+            "id": 3,
+            "name": "Janusz"
+        },
+        {
+            "balance": 96767.0,
+            "id": 4,
+            "name": "Charlie123"
+        }
+    ]
+}
