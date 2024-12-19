@@ -1,6 +1,7 @@
 #ifndef BLACKJACKHAND_HPP
 #define BLACKJACKHAND_HPP
 
+#include <iostream>
 #include <vector>
 #include "Card.hpp"
 #include "Player.hpp"
@@ -34,6 +35,9 @@ public:
 
     // Returns the cards in the hand
     const std::vector<Card>& getCards() const;
+
+    // Prints visual representation of the hand
+    virtual void prettyPrint() const;
 
     // Clears the hand for a new round
     void clearHand();

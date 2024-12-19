@@ -90,7 +90,7 @@ void Casino::loginPlayer() {
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // discard invalid input
             std::cout << "Invalid input. Please enter a positive number: ";
         }
-        int newId = players.size() + 1; // Generate a new ID for the player
+        int newId = players.size() + 1; // Generate a new ID for the player (need to change later)
         loggedInPlayer = new Player(newId, login, balance, true);
         addPlayer(std::unique_ptr<Player>(loggedInPlayer));
         std::cout << "Welcome to the casino, " << loggedInPlayer->getName() << "!" << std::endl;

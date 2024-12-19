@@ -4,6 +4,8 @@
 #include <iostream>
 #include <algorithm>
 #include <limits>
+#include <thread>
+#include <chrono>
 
 // Constructor
 BlackjackGame::BlackjackGame(Player* p, double minBetAmount, double maxBetAmount, Dealer& gameDealer) : CardGame("Blackjack", minBetAmount, maxBetAmount, gameDealer), dealer(gameDealer) {
@@ -17,9 +19,10 @@ size_t BlackjackGame::checkBlackjack() {
     // check if the dealer has blackjack
     if (dealerHand->getVisibleValue() == 11) {
         dealerHand->revealHiddenCard();
-        std::cout << "Dealer's hand: " << dealerHand->getCards()[0].toString() << " " << dealerHand->getCards()[1].toString() << std::endl;
         if (dealerHand->calculateValue() == 21) {
-            std::cout << "Dealer has blackjack!" << std::endl;
+            std::cout << "Dealer has BLACKJACK!" << std::endl;
+            dealerHand->prettyPrint();
+            dealerHand->hideFirstCard();
             return -1; // dealer has blackjack
         }
     }
@@ -27,7 +30,7 @@ size_t BlackjackGame::checkBlackjack() {
     for (size_t i = 0; i < playerHands.size(); ++i) {
         if (playerHands[i]->calculateValue() == 21) {
             //playerHands[i]->isActive = false;
-            std::cout << "Blackjack for player " << playerHands[i]->owner->getName() << "!" << std::endl;
+            std::cout << "BLACKJACK for player " << playerHands[i]->owner->getName() << "!" << std::endl;
             return i;
         }
     }
@@ -43,7 +46,11 @@ void BlackjackGame::addPlayerHand(Player* player) {
 void BlackjackGame::dealCards() {
     // shuffle the deck
     shuffleDeck();
-    std::cout << "\n=== Dealing Cards ===\n";
+    std::string deal_print = "\n=== Dealing Cards ===\n";
+    for (char c : deal_print) {
+        std::cout << c << std::flush;
+        std::this_thread::sleep_for(std::chrono::milliseconds(30));
+    }
     // Clear all hands before dealing new cards
     dealerHand->clearHand();
     for (auto& hand : playerHands) {
@@ -61,14 +68,17 @@ void BlackjackGame::dealCards() {
 // Print all hands
 void BlackjackGame::printHands() const {
     // print the dealer's hand
-    std::cout << "Dealer's hand: [Hidden Card]  " << dealerHand->getCards()[1].toString() << std::endl;
-
-    for (size_t i = 0; i < playerHands.size(); ++i) {
-        std::cout << "Player " << playerHands[i]->owner->getName() << "'s hand: ";
-        for (const Card& card : playerHands[i]->getCards()) {
-            std::cout << card.toString() << "   ";
+    std::cout << "Dealer's hand:" << std::endl;
+    dealerHand->prettyPrint();
+    // print each player's hand
+    if (playerHands.size() == 1) {
+        std::cout << "Your hand:" << std::endl;
+        playerHands[0]->prettyPrint();
+    } else {
+        for (size_t i = 0; i < playerHands.size(); ++i) {
+            std::cout << "Your hand " << i + 1 << ":" << std::endl;
+            playerHands[i]->prettyPrint();
         }
-        std::cout << std::endl;
     }
 }
 
@@ -85,13 +95,10 @@ void BlackjackGame::hit(size_t handIndex) {
         return;
     }
 
-    hand->addCard(deck.drawCard());
-    std::cout << "Player hits." << std::endl;
-    std::cout << "Player's hand: ";
-    for (const Card& card : hand->getCards()) {
-        std::cout << card.toString() << " ";
-    }
-    std::cout << std::endl;
+    Card newCard = deck.drawCard();
+    hand->addCard(newCard);
+    std::cout << "Player drew: " << newCard.toString() << std::endl;
+    printHands();
 }
 
 // Player decides to stand
@@ -210,22 +217,16 @@ void BlackjackGame::promptPlayerAction(Player* player) {
 int BlackjackGame::dealersTurn() {
     // Reveal the dealer's hidden card
     dealerHand->revealHiddenCard();
-    std::cout << "Dealer's hand: ";
-    for (const Card& card : dealerHand->getCards()) {
-        std::cout << card.toString() << " ";
-    }
-    std::cout << std::endl;
 
     // Dealer hits until the hand value is 17 or higher
     while (dealerHand->shouldHit()) {
-        dealerHand->addCard(deck.drawCard());
-        std::cout << "Dealer hits." << std::endl;
-        std::cout << "Dealer's hand: ";
-        for (const Card& card : dealerHand->getCards()) {
-            std::cout << card.toString() << " ";
-        }
-        std::cout << std::endl;
+        Card newCard = deck.drawCard();
+        dealerHand->addCard(newCard);
+        std::cout << "Dealer drew: " << newCard.toString() << std::endl;
     }
+
+    // Print the dealer's final hand
+    dealerHand->prettyPrint();
 
     // Return the dealer's final hand value
     return dealerHand->calculateValue();
@@ -282,12 +283,6 @@ void BlackjackGame::resolveBets() {
     }
 }
 
-
-
-// Starts the Blackjack game
-void BlackjackGame::startGame() {
-    std::cout << "\n=== Starting New Game ===\n";
-}
 
 // Play a round of Blackjack
 void BlackjackGame::playRound() {
@@ -371,31 +366,32 @@ void BlackjackGame::playRound() {
     for (Player* player : uniquePlayers) {
         addPlayerHand(player);
     }
+    dealerHand->hideFirstCard();
 
     endGame();
 }
 
+
+// Starts the Blackjack game
+void BlackjackGame::startGame() {
+    std::string start_print = "\n=== Starting Blackjack Game ===\n";
+    for (char c : start_print) {
+        std::cout << c << std::flush;
+        std::this_thread::sleep_for(std::chrono::milliseconds(30));
+    }
+}
+
+
 // Ends the Blackjack game
 void BlackjackGame::endGame() {
-    std::cout << "\n=== Game Over ===" << std::endl;
+    std::string over_print = "\n=== Game Over ===\n";
+    for (char c : over_print) {
+        std::cout << c << std::flush;
+        std::this_thread::sleep_for(std::chrono::milliseconds(30));
+    }
 }
 
 // Destructor
 BlackjackGame::~BlackjackGame() {
     // No additional cleanup needed
 }
-
-// example usage of hand class
-/*
-void BlackjackGame::dealCards() override {
-    // Deal two cards to each player hand
-    for (auto& hand : playerHands) {
-        hand->addCard(deck.drawCard());
-        hand->addCard(deck.drawCard());
-    }
-    
-    // Deal to dealer
-    dealerHand->addCard(deck.drawCard());
-    dealerHand->addCard(deck.drawCard());
-}
-*/

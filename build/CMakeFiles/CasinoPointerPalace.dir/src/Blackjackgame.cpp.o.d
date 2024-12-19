@@ -248,7 +248,9 @@ CMakeFiles/CasinoPointerPalace.dir/src/Blackjackgame.cpp.o: \
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/Card.hpp \
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/Dealer.hpp \
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/BlackjackHand.hpp \
+ /usr/include/c++/11/iostream \
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/DealerHand.hpp \
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/Player.hpp \
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/BlackjackHand.hpp \
- /usr/include/c++/11/iostream
+ /usr/include/c++/11/thread /usr/include/c++/11/bits/std_thread.h \
+ /usr/include/c++/11/bits/this_thread_sleep.h
