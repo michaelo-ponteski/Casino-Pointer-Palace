@@ -2,14 +2,19 @@
 #include "../include/Card.hpp"
 #include <algorithm>
 #include <vector>
+#include <stdexcept>
+#include <iostream>
 
 // Constructor
 BlackjackHand::BlackjackHand(Player* player) : owner(player), betAmount(0.0), isActive(true) {
-    //std::cout << "Blackjack hand created." << std::endl;
+    // std::cout << "Blackjack hand created." << std::endl;
 }
 
-// set bet amount
+// Set bet amount
 void BlackjackHand::setBetAmount(double amount) {
+    if (amount < 0) {
+        throw std::invalid_argument("Bet amount cannot be negative.");
+    }
     betAmount = amount;
 }
 
@@ -40,7 +45,7 @@ int BlackjackHand::calculateValue() const {
             case Rank::QUEEN:
             case Rank::KING: cardValue = 10; break;
             case Rank::ACE: cardValue = 11; break;
-            default: cardValue = 0; break;
+            default: throw std::runtime_error("Invalid card rank encountered.");
         }
         totalValue += cardValue;
 
@@ -80,6 +85,11 @@ const std::vector<Card>& BlackjackHand::getCards() const {
 
 // Prints visual representation of the hand
 void BlackjackHand::prettyPrint() const {
+    if (cards.empty()) {
+        std::cerr << "No cards to display." << std::endl;
+        return;
+    }
+
     std::vector<std::string> suits;
     std::vector<std::string> ranks;
     for (const Card& card : cards) {

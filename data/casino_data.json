@@ -2,17 +2,17 @@
     "balance": 10000.0,
     "players": [
         {
-            "balance": 1323.0,
+            "balance": 1334.0,
             "id": 1,
             "name": "Alice"
         },
         {
-            "balance": 279.0,
+            "balance": 1178.0,
             "id": 2,
             "name": "Bob"
         },
         {
-            "balance": 2862.0,
+            "balance": 2840.0,
             "id": 3,
             "name": "Janusz"
         },
@@ -20,6 +20,11 @@
             "balance": 96767.0,
             "id": 4,
             "name": "Charlie123"
+        },
+        {
+            "balance": 2593.0,
+            "id": 5,
+            "name": "Tony"
         }
     ]
 }

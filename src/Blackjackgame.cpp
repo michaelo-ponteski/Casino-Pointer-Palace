@@ -6,6 +6,7 @@
 #include <limits>
 #include <thread>
 #include <chrono>
+#include <stdexcept>
 
 // Constructor
 BlackjackGame::BlackjackGame(Player* p, double minBetAmount, double maxBetAmount, Dealer& gameDealer) : CardGame("Blackjack", minBetAmount, maxBetAmount, gameDealer), dealer(gameDealer) {
@@ -29,7 +30,6 @@ size_t BlackjackGame::checkBlackjack() {
     // check for blackjack in player hands
     for (size_t i = 0; i < playerHands.size(); ++i) {
         if (playerHands[i]->calculateValue() == 21) {
-            //playerHands[i]->isActive = false;
             std::cout << "BLACKJACK for player " << playerHands[i]->owner->getName() << "!" << std::endl;
             return i;
         }
@@ -44,33 +44,41 @@ void BlackjackGame::addPlayerHand(Player* player) {
 
 // Deal cards to players
 void BlackjackGame::dealCards() {
-    // shuffle the deck
-    shuffleDeck();
+    try {
+        shuffleDeck();
+    } catch (const std::exception& e) {
+        std::cerr << "Error shuffling deck: " << e.what() << std::endl;
+        return;
+    }
+
     std::string deal_print = "\n=== Dealing Cards ===\n";
     for (char c : deal_print) {
         std::cout << c << std::flush;
         std::this_thread::sleep_for(std::chrono::milliseconds(30));
     }
+
     // Clear all hands before dealing new cards
     dealerHand->clearHand();
     for (auto& hand : playerHands) {
         hand->clearHand();
     }
-    // two cards for the dealer and for each player hand
-    dealerHand->addCard(deck.drawCard());
-    dealerHand->addCard(deck.drawCard());
-    for (auto& hand : playerHands) {
-        hand->addCard(deck.drawCard());
-        hand->addCard(deck.drawCard());
+
+    try {
+        dealerHand->addCard(deck.drawCard());
+        dealerHand->addCard(deck.drawCard());
+        for (auto& hand : playerHands) {
+            hand->addCard(deck.drawCard());
+            hand->addCard(deck.drawCard());
+        }
+    } catch (const std::exception& e) {
+        std::cerr << "Error dealing cards: " << e.what() << std::endl;
     }
 }
 
 // Print all hands
 void BlackjackGame::printHands() const {
-    // print the dealer's hand
     std::cout << "Dealer's hand:" << std::endl;
     dealerHand->prettyPrint();
-    // print each player's hand
     if (playerHands.size() == 1) {
         std::cout << "Your hand:" << std::endl;
         playerHands[0]->prettyPrint();
@@ -95,10 +103,14 @@ void BlackjackGame::hit(size_t handIndex) {
         return;
     }
 
-    Card newCard = deck.drawCard();
-    hand->addCard(newCard);
-    std::cout << "Player drew: " << newCard.toString() << std::endl;
-    printHands();
+    try {
+        Card newCard = deck.drawCard();
+        hand->addCard(newCard);
+        std::cout << "Player drew: " << newCard.toString() << std::endl;
+        printHands();
+    } catch (const std::exception& e) {
+        std::cerr << "Error drawing card: " << e.what() << std::endl;
+    }
 }
 
 // Player decides to stand
@@ -143,26 +155,30 @@ bool BlackjackGame::split(size_t handIndex) {
         return false;
     }
 
-    // Split cards into two hands
-    Card firstCard = originalHand->getCards()[0];
-    Card secondCard = originalHand->getCards()[1];
-    originalHand->clearHand();
-    auto newHand = std::make_unique<BlackjackHand>(originalHand->owner);
+    try {
+        Card firstCard = originalHand->getCards()[0];
+        Card secondCard = originalHand->getCards()[1];
+        originalHand->clearHand();
+        auto newHand = std::make_unique<BlackjackHand>(originalHand->owner);
 
-    originalHand->addCard(firstCard);
-    originalHand->addCard(deck.drawCard());
-    originalHand->isActive = true; // Mark the original hand as active
+        originalHand->addCard(firstCard);
+        originalHand->addCard(deck.drawCard());
+        originalHand->isActive = true; // Mark the original hand as active
 
-    newHand->addCard(secondCard);
-    newHand->addCard(deck.drawCard());
-    newHand->betAmount = originalHand->betAmount;
-    newHand->isActive = true; // Ensure the new hand is active
+        newHand->addCard(secondCard);
+        newHand->addCard(deck.drawCard());
+        newHand->betAmount = originalHand->betAmount;
+        newHand->isActive = true; // Ensure the new hand is active
 
-    // Add the new hand to the player's hands
-    playerHands.insert(playerHands.begin() + handIndex + 1, std::move(newHand));
+        // Add the new hand to the player's hands
+        playerHands.insert(playerHands.begin() + handIndex + 1, std::move(newHand));
 
-    printHands();
-    return true;
+        printHands();
+        return true;
+    } catch (const std::exception& e) {
+        std::cerr << "Error splitting hand: " << e.what() << std::endl;
+        return false;
+    }
 }
 
 // Prompts the player to choose an action
@@ -212,7 +228,6 @@ void BlackjackGame::promptPlayerAction(Player* player) {
     }
 }
 
-
 // Dealer's turn
 int BlackjackGame::dealersTurn() {
     // Reveal the dealer's hidden card
@@ -220,9 +235,14 @@ int BlackjackGame::dealersTurn() {
 
     // Dealer hits until the hand value is 17 or higher
     while (dealerHand->shouldHit()) {
-        Card newCard = deck.drawCard();
-        dealerHand->addCard(newCard);
-        std::cout << "Dealer drew: " << newCard.toString() << std::endl;
+        try {
+            Card newCard = deck.drawCard();
+            dealerHand->addCard(newCard);
+            std::cout << "Dealer drew: " << newCard.toString() << std::endl;
+        } catch (const std::exception& e) {
+            std::cerr << "Error drawing card for dealer: " << e.what() << std::endl;
+            break;
+        }
     }
 
     // Print the dealer's final hand
@@ -283,12 +303,16 @@ void BlackjackGame::resolveBets() {
     }
 }
 
-
 // Play a round of Blackjack
 void BlackjackGame::playRound() {
     // Check if there are any players
     if (playerHands.empty()) {
         std::cout << "No players at the table." << std::endl;
+        return;
+    }
+
+    if (gamePlayer->getBalance() < minBet) {
+        std::cout << "Insufficient balance to play." << std::endl;
         return;
     }
     startGame();
@@ -330,7 +354,6 @@ void BlackjackGame::playRound() {
         std::cout << player->getName() << " bet $" << bet << "." << std::endl;
     }
 
-
     // Deal cards
     dealCards();
     printHands();
@@ -371,7 +394,6 @@ void BlackjackGame::playRound() {
     endGame();
 }
 
-
 // Starts the Blackjack game
 void BlackjackGame::startGame() {
     std::string start_print = "\n=== Starting Blackjack Game ===\n";
@@ -380,7 +402,6 @@ void BlackjackGame::startGame() {
         std::this_thread::sleep_for(std::chrono::milliseconds(30));
     }
 }
-
 
 // Ends the Blackjack game
 void BlackjackGame::endGame() {

@@ -248,4 +248,6 @@ CMakeFiles/CasinoPointerPalace.dir/src/RouletteGame.cpp.o: \
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/../include/../include/RouletteStats.hpp \
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/../include/../include/../include/nlohmann/json.hpp \
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/../include/../include/BlackjackStats.hpp \
- /usr/include/c++/11/iostream
+ /usr/include/c++/11/iostream /usr/include/c++/11/thread \
+ /usr/include/c++/11/bits/std_thread.h \
+ /usr/include/c++/11/bits/this_thread_sleep.h

@@ -3,7 +3,6 @@
 
 #include "BlackjackHand.hpp"
 #include "Dealer.hpp"
-#include <vector>
 
 class DealerHand : public BlackjackHand {
 private:

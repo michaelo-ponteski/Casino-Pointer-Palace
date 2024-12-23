@@ -2,6 +2,7 @@
 #include "../include/Dealer.hpp"
 #include "../include/BlackjackHand.hpp"
 #include "../include/Card.hpp"
+#include <stdexcept>
 
 // Constructor - pass nullptr as Player* since dealer isn't a player
 DealerHand::DealerHand(Dealer* dealer) : BlackjackHand(nullptr), firstCardHidden(true) {}
@@ -18,6 +19,10 @@ bool DealerHand::hasHiddenCard() const {
 
 // Get the visible hand value (when firstCardHidden is true)
 int DealerHand::getVisibleValue() const {
+    if (cards.size() < 2) {
+        throw std::runtime_error("Not enough cards to get visible value.");
+    }
+
     int cardValue = 0;
     switch (cards[1].getRank()) {
         case Rank::TWO: cardValue = 2; break;
@@ -50,6 +55,10 @@ void DealerHand::hideFirstCard() {
 
 // Override prettyPrint to hide the first card if it's hidden
 void DealerHand::prettyPrint() const {
+    if (cards.empty()) {
+        throw std::runtime_error("No cards to print.");
+    }
+
     std::vector<std::string> suits;
     std::vector<std::string> ranks;
     int crd_no = 1;
