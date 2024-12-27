@@ -19,15 +19,6 @@ public:
     // Checks if the dealer is available
     bool getAvailability() const;
 
-    // Deals cards to players (specific to card games)
-    void dealCards();
-
-    // Collects bets from players
-    void collectBets();
-
-    // Payouts winnings to players
-    void payoutWinnings();
-
     // Getters
     int getDealerId() const;
     std::string getName() const;

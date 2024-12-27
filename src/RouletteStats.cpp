@@ -1,5 +1,6 @@
 #include "../include/RouletteStats.hpp"
 #include <iostream>
+#include <stdexcept>
 
 // Constructor
 RouletteStats::RouletteStats() {
@@ -21,10 +22,15 @@ nlohmann::json RouletteStats::toJson() const {
 
 // Deserialize PlayerStats object from JSON
 void RouletteStats::fromJson(const nlohmann::json& j) {
-    totalSpins = j.at("totalSpins").get<int>();
-    wins = j.at("wins").get<int>();
-    losses = j.at("losses").get<int>();
-    favouriteColor = j.at("favouriteColor").get<std::string>();
+    try {
+        totalSpins = j.at("totalSpins").get<int>();
+        wins = j.at("wins").get<int>();
+        losses = j.at("losses").get<int>();
+        favouriteColor = j.at("favouriteColor").get<std::string>();
+    } catch (const nlohmann::json::exception& e) {
+        std::cerr << "Error deserializing JSON: " << e.what() << std::endl;
+        throw; // rethrow the exception after logging it
+    }
 }
 
 // Reset the statistics

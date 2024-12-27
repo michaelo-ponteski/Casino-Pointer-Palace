@@ -1,16 +1,20 @@
 #include "../include/BlackjackHand.hpp"
 #include "../include/Card.hpp"
-#include <iostream>
 #include <algorithm>
 #include <vector>
+#include <stdexcept>
+#include <iostream>
 
 // Constructor
 BlackjackHand::BlackjackHand(Player* player) : owner(player), betAmount(0.0), isActive(true) {
-    //std::cout << "Blackjack hand created." << std::endl;
+    // std::cout << "Blackjack hand created." << std::endl;
 }
 
-// set bet amount
+// Set bet amount
 void BlackjackHand::setBetAmount(double amount) {
+    if (amount < 0) {
+        throw std::invalid_argument("Bet amount cannot be negative.");
+    }
     betAmount = amount;
 }
 
@@ -41,7 +45,7 @@ int BlackjackHand::calculateValue() const {
             case Rank::QUEEN:
             case Rank::KING: cardValue = 10; break;
             case Rank::ACE: cardValue = 11; break;
-            default: cardValue = 0; break;
+            default: throw std::runtime_error("Invalid card rank encountered.");
         }
         totalValue += cardValue;
 
@@ -77,6 +81,75 @@ bool BlackjackHand::isBusted() const {
 // Returns the cards in the hand
 const std::vector<Card>& BlackjackHand::getCards() const {
     return cards;
+}
+
+// Prints visual representation of the hand
+void BlackjackHand::prettyPrint() const {
+    if (cards.empty()) {
+        std::cerr << "No cards to display." << std::endl;
+        return;
+    }
+
+    std::vector<std::string> suits;
+    std::vector<std::string> ranks;
+    for (const Card& card : cards) {
+        std::string suitStr;
+        switch (card.getSuit()) {
+            case Suit::HEARTS: suitStr = "♥"; break;
+            case Suit::DIAMONDS: suitStr = "♦"; break;
+            case Suit::CLUBS: suitStr = "♣"; break;
+            case Suit::SPADES: suitStr = "♠"; break;
+            default: suitStr = " "; break;
+        }
+        suits.push_back(suitStr);
+
+        std::string rankStr;
+        switch (card.getRank()) {
+            case Rank::TWO: rankStr = "2"; break;
+            case Rank::THREE: rankStr = "3"; break;
+            case Rank::FOUR: rankStr = "4"; break;
+            case Rank::FIVE: rankStr = "5"; break;
+            case Rank::SIX: rankStr = "6"; break;
+            case Rank::SEVEN: rankStr = "7"; break;
+            case Rank::EIGHT: rankStr = "8"; break;
+            case Rank::NINE: rankStr = "9"; break;
+            case Rank::TEN: rankStr = "10"; break;
+            case Rank::JACK: rankStr = "J"; break;
+            case Rank::QUEEN: rankStr = "Q"; break;
+            case Rank::KING: rankStr = "K"; break;
+            case Rank::ACE: rankStr = "A"; break;
+            default: rankStr = " "; break;
+        }
+        ranks.push_back(rankStr);
+    }
+
+    std::string art = "";
+    int numCards = cards.size();
+    for (int i = 0; i < numCards; i++) {
+        art += "  ___ ";
+    }
+    art += "\n";
+    for (int i = 0; i < numCards; i++) {
+        if (ranks[i] == "10") {
+            art += " |10 |";
+        } else {
+            art += " |" + ranks[i] + "  |";
+        }
+    }
+    art += "\n";
+    for (int i = 0; i < numCards; i++) {
+        art += " | " + suits[i] + " |";
+    }
+    art += "\n";
+    for (int i = 0; i < numCards; i++) {
+        if (ranks[i] == "10") {
+            art += " |_10|";
+        } else {
+            art += " |__" + ranks[i] + "|";
+        }
+    }
+    art += "\n";
+    std::cout << art << std::endl;
 }
 
 // Clears the hand for a new round

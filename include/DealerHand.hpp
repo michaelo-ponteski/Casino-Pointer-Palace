@@ -3,7 +3,6 @@
 
 #include "BlackjackHand.hpp"
 #include "Dealer.hpp"
-#include <vector>
 
 class DealerHand : public BlackjackHand {
 private:
@@ -16,14 +15,20 @@ public:
     // Dealer specific
     bool shouldHit() const;  // Determines if the dealer should hit or stand
 
-    // Get the card(s) - overridden to return the visible card or both
-    std::vector<Card> getCards();
+    // check if the dealer has a hidden card
+    bool hasHiddenCard() const;
 
     // Get the visible hand value (when firstCardHidden is true)
     int getVisibleValue() const;
 
     // Reveal the hidden card
     void revealHiddenCard();
+
+    // Hide the first card
+    void hideFirstCard();
+
+    // Override prettyPrint to hide the first card if it's hidden
+    void prettyPrint() const override;
 
     // Destructor
     ~DealerHand();

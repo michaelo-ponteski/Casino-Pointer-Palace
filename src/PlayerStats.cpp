@@ -35,8 +35,14 @@ void PlayerStats::saveToFile() const {
     std::ifstream inFile("../data/player_stats.json");
     nlohmann::json j;
     if (inFile.is_open()) {
-        inFile >> j;
+        try {
+            inFile >> j;
+        } catch (const std::exception& e) {
+            std::cerr << "Error reading from file: " << e.what() << std::endl;
+        }
         inFile.close();
+    } else {
+        std::cerr << "Could not open file for reading: ../data/player_stats.json" << std::endl;
     }
 
     bool playerFound = false;
@@ -54,8 +60,14 @@ void PlayerStats::saveToFile() const {
 
     std::ofstream outFile("../data/player_stats.json");
     if (outFile.is_open()) {
-        outFile << j.dump(4);
+        try {
+            outFile << j.dump(4);
+        } catch (const std::exception& e) {
+            std::cerr << "Error writing to file: " << e.what() << std::endl;
+        }
         outFile.close();
+    } else {
+        std::cerr << "Could not open file for writing: ../data/player_stats.json" << std::endl;
     }
 }
 
@@ -64,7 +76,13 @@ void PlayerStats::loadFromFile() {
     std::ifstream file("../data/player_stats.json");
     if (file.is_open()) {
         nlohmann::json j;
-        file >> j;
+        try {
+            file >> j;
+        } catch (const std::exception& e) {
+            std::cerr << "Error reading from file: " << e.what() << std::endl;
+            resetStats();
+            return;
+        }
         file.close();
 
         for (const auto& player : j) {
@@ -73,8 +91,10 @@ void PlayerStats::loadFromFile() {
                 return;
             }
         }
+    } else {
+        std::cerr << "Could not open file for reading: ../data/player_stats.json" << std::endl;
     }
-    resetStats(); // If player not found, reset stats
+    resetStats(); // If player not found or file not opened, reset stats
 }
 
 // Serialize PlayerStats object to JSON
@@ -93,14 +113,19 @@ nlohmann::json PlayerStats::toJson() const {
 
 // Deserialize PlayerStats object from JSON
 void PlayerStats::fromJson(const nlohmann::json& j) {
-    totalGamesPlayed = j.at("totalGamesPlayed").get<int>();
-    totalWinnings = j.at("totalWinnings").get<double>();
-    totalLosses = j.at("totalLosses").get<double>();
-    highestWin = j.at("highestWin").get<double>();
-    biggestLoss = j.at("biggestLoss").get<double>();
-    lastPlayedDate = j.at("lastPlayedDate").get<time_t>();
-    rouletteStats.fromJson(j.at("rouletteStats"));
-    blackjackStats.fromJson(j.at("blackjackStats"));
+    try {
+        totalGamesPlayed = j.at("totalGamesPlayed").get<int>();
+        totalWinnings = j.at("totalWinnings").get<double>();
+        totalLosses = j.at("totalLosses").get<double>();
+        highestWin = j.at("highestWin").get<double>();
+        biggestLoss = j.at("biggestLoss").get<double>();
+        lastPlayedDate = j.at("lastPlayedDate").get<time_t>();
+        rouletteStats.fromJson(j.at("rouletteStats"));
+        blackjackStats.fromJson(j.at("blackjackStats"));
+    } catch (const std::exception& e) {
+        std::cerr << "Error parsing JSON: " << e.what() << std::endl;
+        resetStats();
+    }
 }
 
 // Updates player stats based on the game result

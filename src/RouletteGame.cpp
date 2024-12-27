@@ -3,9 +3,11 @@
 #include <cstdlib>
 #include <ctime>
 #include <limits>
+#include <thread>
+#include <chrono>
+#include <stdexcept>
 
 RouletteGame::RouletteGame(Player* p) : Game("Roulette", 10.0, 1000.0) {
-    // Constructor
     std::srand(std::time(0)); // Seed the random number generator
     gamePlayer = p;
 }
@@ -102,8 +104,7 @@ void RouletteGame::placeBet() {
             }
             break;
         default:
-            std::cout << "Invalid bet type. Please try again.\n";
-            return;
+            throw std::logic_error("Invalid bet type encountered in switch statement");
     }
 
     Bet bet = {betType, amount, number};
@@ -111,6 +112,12 @@ void RouletteGame::placeBet() {
 }
 
 void RouletteGame::spinWheel() {
+    std::string content = "\n=== Spinning the wheel ===\n";
+    for (char c : content) {
+        std::cout << c << std::flush;
+        std::this_thread::sleep_for(std::chrono::milliseconds(30));
+    }
+
     // Generate a random number between 0 and 36
     winningNumber = std::rand() % 37;
     winningColor = getColor(winningNumber);
@@ -151,14 +158,16 @@ void RouletteGame::resolveBets() {
                 won = (bet.number <= winningNumber && winningNumber < bet.number + 3);
                 payout = bet.amount * 12; // Payout for street bet
                 break;
+            default:
+                throw std::logic_error("Invalid bet type encountered in switch statement");
         }
         if (won) {
-            std::cout << "Bet won! Payout: $" << payout << std::endl;
+            std::cout << "Bet WON! Payout: $" << payout << std::endl;
             gamePlayer->addBalance(payout);
             gamePlayer->stats.updateStats(payout);
             gamePlayer->stats.rouletteStats.updateStats(true, color);
         } else {
-            std::cout << "Bet lost. $" << bet.amount << " gone" << std::endl;
+            std::cout << "Bet LOST. $" << bet.amount << " gone" << std::endl;
             gamePlayer->stats.updateStats(-bet.amount);
             gamePlayer->stats.rouletteStats.updateStats(false, color);
         }
@@ -170,9 +179,18 @@ void RouletteGame::resolveBets() {
 void RouletteGame::playRound() {
     std::cout << "Your current balance is: $" << gamePlayer->getBalance() << std::endl;
 
-    placeBet();
-    spinWheel();
-    resolveBets();
+    if (gamePlayer->getBalance() < minBet) {
+        std::cout << "Insufficient balance to play." << std::endl;
+        return;
+    }
+
+    try {
+        placeBet();
+        spinWheel();
+        resolveBets();
+    } catch (const std::exception& e) {
+        std::cerr << "An error occurred: " << e.what() << std::endl;
+    }
 }
 
 bool RouletteGame::isOdd(int number) {
@@ -184,8 +202,6 @@ bool RouletteGame::isHigh(int number) {
 }
 
 std::string RouletteGame::getColor(int number) {
-    // Implement the logic to determine the color of the number
-    // For simplicity, let's assume:
     // Red numbers: 1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36
     // Black numbers: 2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35
     // Zero is neither red nor black

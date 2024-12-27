@@ -22,16 +22,6 @@ bool Game::validateBet(double amount) const {
     return amount >= minBet && amount <= maxBet;
 }
 
-// Places a bet for a given player; returns true if the bet is valid and accepted
-bool Game::placeBet(Player* player, double amount) {
-    if (validateBet(amount)) {
-        // UNCOMMENT WHEN SETBALANCE IS IMPLEMENTED
-        // player->setBalance(player->getBalance() - amount);
-        return true;
-    }
-    return false;
-}
-
 // Getter for game name
 std::string Game::getGameName() const {
     return gameName;

@@ -25,9 +25,6 @@ public:
     // Ends the game; virtual for possible override by derived classes
     virtual void endGame() = 0;
 
-    // Places a bet for a given player; returns true if the bet is valid and accepted
-    bool placeBet(Player* player, double amount);
-
     // Plays a round of the game; virtual for possible override by derived classes
     virtual void playRound() = 0;
 

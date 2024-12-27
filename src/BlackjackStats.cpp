@@ -1,5 +1,6 @@
 #include "../include/BlackjackStats.hpp"
 #include <iostream>
+#include <stdexcept>
 
 // Constructor
 BlackjackStats::BlackjackStats() {
@@ -23,12 +24,17 @@ nlohmann::json BlackjackStats::toJson() const {
 
 // Deserialize PlayerStats object from JSON
 void BlackjackStats::fromJson(const nlohmann::json& j) {
-    totalHands = j.at("totalHands").get<int>();
-    wins = j.at("wins").get<int>();
-    losses = j.at("losses").get<int>();
-    pushes = j.at("pushes").get<int>();
-    blackjacks = j.at("blackjacks").get<int>();
-    busts = j.at("busts").get<int>();
+    try {
+        totalHands = j.at("totalHands").get<int>();
+        wins = j.at("wins").get<int>();
+        losses = j.at("losses").get<int>();
+        pushes = j.at("pushes").get<int>();
+        blackjacks = j.at("blackjacks").get<int>();
+        busts = j.at("busts").get<int>();
+    } catch (const nlohmann::json::exception& e) {
+        std::cerr << "Error deserializing JSON: " << e.what() << std::endl;
+        throw; // rethrow the exception after logging it
+    }
 }
 
 // Reset the statistics
@@ -67,4 +73,3 @@ void BlackjackStats::printSpecificStats() const {
     std::cout << "Blackjacks: " << blackjacks << std::endl;
     std::cout << "Busts: " << busts << std::endl;
 }
-
