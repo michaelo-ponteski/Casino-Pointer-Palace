@@ -1,12 +1,12 @@
 #include <iostream>
 #include <stdexcept>
-#include "../include/Casino.hpp"
+#include <Casino.hpp>
 #include <limits>
 
-
-// Run the main executable in /build/ with: ./CasinoPointerPalace
-// If you need to build then build in /build/ with: cmake --build .  
-// or if you live under the stone then run with smth like this: g++ /src/*.cpp -o execFile
+// If the build dir is not empty, remove all files from it
+// Initiate cmake with: cmake -B build
+// Build the project with: cmake --build build
+// Run the project with: ./build/CasinoPointerPalace
 
 void printASCIIart() {
     std::cout << R"(

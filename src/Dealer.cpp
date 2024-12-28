@@ -1,4 +1,4 @@
-#include "../include/Dealer.hpp"
+#include <Dealer.hpp>
 #include <iostream>
 #include <string>
 

@@ -3,8 +3,8 @@
 
 #include <iostream>
 #include <vector>
-#include "Card.hpp"
-#include "Player.hpp"
+#include <Card.hpp>
+#include <Player.hpp>
 
 class BlackjackHand {
 protected:

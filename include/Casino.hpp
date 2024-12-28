@@ -4,17 +4,17 @@
 #include <vector>
 #include <string>
 #include <map>
-#include "../include/Game.hpp"
-#include "../include/Player.hpp"
-#include "../include/BlackjackGame.hpp"
-#include "../include/RouletteGame.hpp"
-#include "../include/nlohmann/json.hpp"
+#include <Game.hpp>
+#include <Player.hpp>
+#include <BlackjackGame.hpp>
+#include <RouletteGame.hpp>
+#include <json.hpp>
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
 #include <limits>
 #include <fstream>
-#include "../include/Dealer.hpp"
+#include <Dealer.hpp>
 
 class Casino {
 private:

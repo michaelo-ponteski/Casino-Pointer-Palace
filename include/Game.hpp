@@ -3,7 +3,7 @@
 
 #include <string>
 #include <vector>
-#include "Player.hpp"
+#include <Player.hpp>
 
 class Game {
 protected:

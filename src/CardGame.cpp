@@ -1,5 +1,5 @@
-#include "../include/CardGame.hpp"
-#include "../include/Deck.hpp"
+#include <CardGame.hpp>
+#include <Deck.hpp>
 #include <iostream>
 
 

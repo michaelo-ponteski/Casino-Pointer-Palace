@@ -1,8 +1,8 @@
 #ifndef DEALERHAND_HPP
 #define DEALERHAND_HPP
 
-#include "BlackjackHand.hpp"
-#include "Dealer.hpp"
+#include <BlackjackHand.hpp>
+#include <Dealer.hpp>
 
 class DealerHand : public BlackjackHand {
 private:

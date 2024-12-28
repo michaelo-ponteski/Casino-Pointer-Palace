@@ -3,7 +3,7 @@
 
 #include <string>
 #include <vector>
-#include "../include/PlayerStats.hpp"
+#include <PlayerStats.hpp>
 
 
 class Player {

@@ -1,4 +1,4 @@
-#include "../include/Casino.hpp"
+#include <Casino.hpp>
 
 Casino::Casino() : houseBalance(0.0), loggedInPlayer(nullptr) {
     try {
@@ -24,7 +24,7 @@ Casino::Casino() : houseBalance(0.0), loggedInPlayer(nullptr) {
 }
 
 void Casino::loadData() {
-    std::ifstream file("../data/casino_data.json");
+    std::ifstream file("data/casino_data.json");
     if (!file.is_open()) {
         std::cerr << "Could not open the file!" << std::endl;
         return;
@@ -59,7 +59,7 @@ void Casino::saveData() {
             jsonData["players"].push_back(playerData);
         }
 
-        std::ofstream file("../data/casino_data.json");
+        std::ofstream file("data/casino_data.json");
         if (!file.is_open()) {
             std::cerr << "Could not open the file!" << std::endl;
             return;
@@ -135,6 +135,32 @@ void Casino::removePlayer(const std::string& playerName) {
 
         if (it != players.end()) {
             players.erase(it);
+            nlohmann::json jsonData;
+            std::ifstream file("data/casino_data.json");
+            if (file.is_open()) {
+                file >> jsonData;
+                file.close();
+
+                auto& playersArray = jsonData["players"];
+                auto jsonit = std::find_if(playersArray.begin(), playersArray.end(), [&playerName](const nlohmann::json& playerData) {
+                    return playerData["name"].get<std::string>() == playerName;
+                });
+
+                if (jsonit != playersArray.end()) {
+                    playersArray.erase(jsonit);
+
+                    std::ofstream outFile("data/casino_data.json");
+                    if (outFile.is_open()) {
+                        outFile << jsonData.dump(4);
+                        outFile.close();
+                    } else {
+                        std::cerr << "Could not open the file for writing!" << std::endl;
+                    }
+                }
+            } else {
+                std::cerr << "Could not open the file for reading!" << std::endl;
+            }
+            
         } else {
             std::cout << "Player not found." << std::endl;
         }
@@ -170,16 +196,22 @@ void Casino::playerMenu() {
         std::cout << "2. Play Blackjack" << std::endl;
         std::cout << "3. View stats" << std::endl;
         std::cout << "4. Add balance" << std::endl;
-        std::cout << "5. Exit" << std::endl;
+        std::cout << "5. Delete account" << std::endl;
+        std::cout << "6. Exit" << std::endl;
         std::cout << "Enter your choice: ";
-        while (!(std::cin >> choice) || choice < 1 || choice > 5) {
+        while (!(std::cin >> choice) || choice < 1 || choice > 6) {
             std::cin.clear(); // clear the error flag
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // discard invalid input
-            std::cout << "Invalid input. Please enter a number between 1 and 5: ";
+            std::cout << "Invalid input. Please enter a number between 1 and 6: ";
         }
-        if (choice == 5) {
+        if (choice == 6) {
             saveData();
             std::cout << "Thank you for playing! Goodbye." << std::endl;
+            exit(0);
+        }
+        if (choice == 5) {
+            removePlayer(loggedInPlayer->getName());
+            std::cout << "Account deleted. Goodbye." << std::endl;
             exit(0);
         }
         if (choice == 3) {

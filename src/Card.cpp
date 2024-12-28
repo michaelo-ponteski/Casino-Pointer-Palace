@@ -1,4 +1,4 @@
-#include "../include/Card.hpp"
+#include <Card.hpp>
 #include <string>
 
 

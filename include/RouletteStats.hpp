@@ -2,7 +2,7 @@
 #define ROULETTESTATS_HPP
 
 #include <string>
-#include "../include/nlohmann/json.hpp"
+#include <json.hpp>
 
 class RouletteStats {
 public:

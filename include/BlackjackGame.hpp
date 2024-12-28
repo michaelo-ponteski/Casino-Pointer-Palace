@@ -3,11 +3,11 @@
 
 #include <vector>
 #include <memory>
-#include "CardGame.hpp"
-#include "Player.hpp"
-#include "BlackjackHand.hpp"
-#include "Dealer.hpp"
-#include "DealerHand.hpp"
+#include <CardGame.hpp>
+#include <Player.hpp>
+#include <BlackjackHand.hpp>
+#include <Dealer.hpp>
+#include <DealerHand.hpp>
 
 class BlackjackGame : public CardGame {
 private:
