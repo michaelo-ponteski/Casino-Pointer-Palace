@@ -1,4 +1,3 @@
-```markdown
 # Instructions for CMake
 
 ## UNIX:
@@ -24,10 +23,18 @@
 4. Make sure your MinGW is installed with the `mingw32-make` tool.
 5. Initiate CMake with:
     ```sh
+    cmake -B build -G "MinGW Makefiles"
+    ```
+6. Build the project with:
+    ```sh
     cmake --build build --config Release
     ```
-6. Run the project with:
+7. Run the project with:
     ```sh
     ./build/CasinoPointerPalace.exe
     ```
-```
+
+## Notes:
+- The project is built in the `build` directory.
+- Some functionallity is not final as the project is for educational purposes.
+
