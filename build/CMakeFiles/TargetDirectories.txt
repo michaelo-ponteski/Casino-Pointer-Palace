@@ -1,3 +1,0 @@
-/mnt/c/put/gitprojects/Casino-Pointer-Palace/build/CMakeFiles/CasinoPointerPalace.dir
-/mnt/c/put/gitprojects/Casino-Pointer-Palace/build/CMakeFiles/edit_cache.dir
-/mnt/c/put/gitprojects/Casino-Pointer-Palace/build/CMakeFiles/rebuild_cache.dir
