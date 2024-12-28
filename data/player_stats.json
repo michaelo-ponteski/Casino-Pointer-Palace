@@ -8,20 +8,20 @@
                 "busts": 0,
                 "losses": 0,
                 "pushes": 0,
-                "totalHands": 1,
-                "wins": 1
-            },
-            "highestWin": 600.0,
-            "lastPlayedDate": 1734958776,
-            "rouletteStats": {
-                "favouriteColor": "Black",
-                "losses": 2,
-                "totalSpins": 5,
+                "totalHands": 3,
                 "wins": 3
             },
-            "totalGamesPlayed": 9,
-            "totalLosses": 34.0,
-            "totalWinnings": 1010.0
+            "highestWin": 600.0,
+            "lastPlayedDate": 1735416951,
+            "rouletteStats": {
+                "favouriteColor": "Red",
+                "losses": 4,
+                "totalSpins": 7,
+                "wins": 3
+            },
+            "totalGamesPlayed": 13,
+            "totalLosses": 67.0,
+            "totalWinnings": 1032.0
         }
     },
     {
