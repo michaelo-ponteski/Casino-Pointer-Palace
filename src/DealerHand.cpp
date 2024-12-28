@@ -1,7 +1,7 @@
-#include "../include/DealerHand.hpp"
-#include "../include/Dealer.hpp"
-#include "../include/BlackjackHand.hpp"
-#include "../include/Card.hpp"
+#include <DealerHand.hpp>
+#include <Dealer.hpp>
+#include <BlackjackHand.hpp>
+#include <Card.hpp>
 #include <stdexcept>
 
 // Constructor - pass nullptr as Player* since dealer isn't a player

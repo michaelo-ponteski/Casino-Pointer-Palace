@@ -1,4 +1,4 @@
-#include "../include/RouletteGame.hpp"
+#include <RouletteGame.hpp>
 #include <iostream>
 #include <cstdlib>
 #include <ctime>

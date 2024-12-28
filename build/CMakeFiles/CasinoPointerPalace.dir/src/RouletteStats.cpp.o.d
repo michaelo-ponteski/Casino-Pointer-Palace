@@ -1,7 +1,7 @@
 CMakeFiles/CasinoPointerPalace.dir/src/RouletteStats.cpp.o: \
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/RouletteStats.cpp \
  /usr/include/stdc-predef.h \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/RouletteStats.hpp \
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/RouletteStats.hpp \
  /usr/include/c++/11/string \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -130,7 +130,7 @@ CMakeFiles/CasinoPointerPalace.dir/src/RouletteStats.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
  /usr/include/c++/11/bits/charconv.h \
  /usr/include/c++/11/bits/basic_string.tcc \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/../include/nlohmann/json.hpp \
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/json.hpp \
  /usr/include/c++/11/algorithm /usr/include/c++/11/utility \
  /usr/include/c++/11/bits/stl_relops.h \
  /usr/include/c++/11/bits/stl_algo.h \

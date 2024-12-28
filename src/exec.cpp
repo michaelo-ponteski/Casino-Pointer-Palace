@@ -1,6 +1,6 @@
 #include <iostream>
 #include <stdexcept>
-#include "../include/Casino.hpp"
+#include <Casino.hpp>
 #include <limits>
 
 

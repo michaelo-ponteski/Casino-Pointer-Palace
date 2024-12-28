@@ -2,7 +2,7 @@
 #define DECK_HPP
 
 #include <vector>
-#include "Card.hpp"
+#include <Card.hpp>
 
 class Deck {
 private:

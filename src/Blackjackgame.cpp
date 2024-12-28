@@ -1,6 +1,6 @@
-#include "../include/BlackjackGame.hpp"
-#include "../include/Player.hpp"
-#include "../include/BlackjackHand.hpp"
+#include <BlackjackGame.hpp>
+#include <Player.hpp>
+#include <BlackjackHand.hpp>
 #include <iostream>
 #include <algorithm>
 #include <limits>
@@ -286,9 +286,9 @@ void BlackjackGame::resolveBets() {
             } else {
                 double payout = bet * 2;  // Standard payout
                 player->addBalance(payout);
-                std::cout << "Player " << player->getName() << " wins $" << payout << "!" << std::endl;
+                std::cout << "Player " << player->getName() << " wins $" << bet << "!" << std::endl;
                 player->stats.blackjackStats.updateStats(true, false, false, false); // Update win stat
-                player->stats.updateStats(payout);
+                player->stats.updateStats(bet);
             }
         } else if (playerValue == dealerValue) {
             player->addBalance(bet);  // Return the original bet

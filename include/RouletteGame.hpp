@@ -1,7 +1,7 @@
 #ifndef ROULETTEGAME_HPP
 #define ROULETTEGAME_HPP
 
-#include "Game.hpp"
+#include <Game.hpp>
 #include <string>
 #include <vector>
 

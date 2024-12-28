@@ -1,4 +1,4 @@
-#include "../include/RouletteStats.hpp"
+#include <RouletteStats.hpp>
 #include <iostream>
 #include <stdexcept>
 

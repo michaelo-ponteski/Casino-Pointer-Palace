@@ -1,4 +1,4 @@
-#include "../include/BlackjackStats.hpp"
+#include <BlackjackStats.hpp>
 #include <iostream>
 #include <stdexcept>
 

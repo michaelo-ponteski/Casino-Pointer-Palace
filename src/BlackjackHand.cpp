@@ -1,5 +1,5 @@
-#include "../include/BlackjackHand.hpp"
-#include "../include/Card.hpp"
+#include <BlackjackHand.hpp>
+#include <Card.hpp>
 #include <algorithm>
 #include <vector>
 #include <stdexcept>

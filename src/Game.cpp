@@ -1,5 +1,5 @@
-#include "../include/Game.hpp"
-#include "../include/Player.hpp"
+#include <Game.hpp>
+#include <Player.hpp>
 #include <iostream>
 #include <string>
 #include <vector>

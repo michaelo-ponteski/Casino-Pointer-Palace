@@ -1,7 +1,7 @@
 CMakeFiles/CasinoPointerPalace.dir/src/PlayerStats.cpp.o: \
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/PlayerStats.cpp \
  /usr/include/stdc-predef.h \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/PlayerStats.hpp \
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/PlayerStats.hpp \
  /usr/include/c++/11/vector /usr/include/c++/11/bits/stl_algobase.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -142,7 +142,7 @@ CMakeFiles/CasinoPointerPalace.dir/src/PlayerStats.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
  /usr/include/c++/11/bits/charconv.h \
  /usr/include/c++/11/bits/basic_string.tcc \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/../include/nlohmann/json.hpp \
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/json.hpp \
  /usr/include/c++/11/algorithm /usr/include/c++/11/bits/stl_algo.h \
  /usr/include/c++/11/bits/algorithmfwd.h \
  /usr/include/c++/11/bits/stl_heap.h \
@@ -241,11 +241,9 @@ CMakeFiles/CasinoPointerPalace.dir/src/PlayerStats.cpp.o: \
  /usr/include/c++/11/bits/fs_dir.h /usr/include/c++/11/bits/fs_ops.h \
  /usr/include/c++/11/numeric /usr/include/c++/11/bits/stl_numeric.h \
  /usr/include/c++/11/pstl/glue_numeric_defs.h /usr/include/c++/11/any \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/../include/RouletteStats.hpp \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/../include/../include/nlohmann/json.hpp \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/../include/BlackjackStats.hpp \
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/RouletteStats.hpp \
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/BlackjackStats.hpp \
  /usr/include/c++/11/iostream /usr/include/c++/11/fstream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
- /usr/include/c++/11/bits/fstream.tcc \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/nlohmann/json.hpp
+ /usr/include/c++/11/bits/fstream.tcc

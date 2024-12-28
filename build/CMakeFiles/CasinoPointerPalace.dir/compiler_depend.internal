@@ -204,7 +204,7 @@ CMakeFiles/CasinoPointerPalace.dir/src/BlackjackHand.cpp.o
  /usr/include/c++/11/bits/invoke.h
  /usr/include/c++/11/bits/stl_multimap.h
  /usr/include/c++/11/bits/erase_if.h
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/nlohmann/json.hpp
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/json.hpp
  /usr/include/c++/11/algorithm
  /usr/include/c++/11/bits/stl_algo.h
  /usr/include/c++/11/bits/algorithmfwd.h
@@ -309,9 +309,7 @@ CMakeFiles/CasinoPointerPalace.dir/src/BlackjackHand.cpp.o
  /usr/include/c++/11/pstl/glue_numeric_defs.h
  /usr/include/c++/11/any
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/RouletteStats.hpp
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/nlohmann/json.hpp
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/BlackjackStats.hpp
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/Card.hpp
 
 CMakeFiles/CasinoPointerPalace.dir/src/BlackjackStats.cpp.o
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/BlackjackStats.cpp
@@ -466,7 +464,7 @@ CMakeFiles/CasinoPointerPalace.dir/src/BlackjackStats.cpp.o
  /usr/include/x86_64-linux-gnu/bits/types/error_t.h
  /usr/include/c++/11/bits/charconv.h
  /usr/include/c++/11/bits/basic_string.tcc
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/nlohmann/json.hpp
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/json.hpp
  /usr/include/c++/11/algorithm
  /usr/include/c++/11/utility
  /usr/include/c++/11/bits/stl_relops.h
@@ -815,7 +813,7 @@ CMakeFiles/CasinoPointerPalace.dir/src/Blackjackgame.cpp.o
  /usr/include/c++/11/bits/stl_map.h
  /usr/include/c++/11/bits/stl_multimap.h
  /usr/include/c++/11/bits/erase_if.h
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/nlohmann/json.hpp
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/json.hpp
  /usr/include/c++/11/algorithm
  /usr/include/c++/11/bits/stl_algo.h
  /usr/include/c++/11/bits/algorithmfwd.h
@@ -926,7 +924,6 @@ CMakeFiles/CasinoPointerPalace.dir/src/Blackjackgame.cpp.o
  /usr/include/c++/11/pstl/glue_numeric_defs.h
  /usr/include/c++/11/any
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/RouletteStats.hpp
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/nlohmann/json.hpp
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/BlackjackStats.hpp
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/Deck.hpp
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/Card.hpp
@@ -934,8 +931,6 @@ CMakeFiles/CasinoPointerPalace.dir/src/Blackjackgame.cpp.o
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/BlackjackHand.hpp
  /usr/include/c++/11/iostream
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/DealerHand.hpp
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/Player.hpp
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/BlackjackHand.hpp
  /usr/include/c++/11/thread
  /usr/include/c++/11/bits/std_thread.h
  /usr/include/c++/11/bits/this_thread_sleep.h
@@ -1268,7 +1263,7 @@ CMakeFiles/CasinoPointerPalace.dir/src/CardGame.cpp.o
  /usr/include/c++/11/bits/invoke.h
  /usr/include/c++/11/bits/stl_multimap.h
  /usr/include/c++/11/bits/erase_if.h
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/nlohmann/json.hpp
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/json.hpp
  /usr/include/c++/11/algorithm
  /usr/include/c++/11/bits/stl_algo.h
  /usr/include/c++/11/bits/algorithmfwd.h
@@ -1401,12 +1396,10 @@ CMakeFiles/CasinoPointerPalace.dir/src/CardGame.cpp.o
  /usr/include/c++/11/pstl/glue_numeric_defs.h
  /usr/include/c++/11/any
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/RouletteStats.hpp
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/nlohmann/json.hpp
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/BlackjackStats.hpp
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/Deck.hpp
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/Card.hpp
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/Dealer.hpp
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/Deck.hpp
  /usr/include/c++/11/iostream
 
 CMakeFiles/CasinoPointerPalace.dir/src/Casino.cpp.o
@@ -1583,7 +1576,7 @@ CMakeFiles/CasinoPointerPalace.dir/src/Casino.cpp.o
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/Game.hpp
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/Player.hpp
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/PlayerStats.hpp
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/nlohmann/json.hpp
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/json.hpp
  /usr/include/c++/11/algorithm
  /usr/include/c++/11/bits/stl_algo.h
  /usr/include/c++/11/bits/algorithmfwd.h
@@ -1716,12 +1709,9 @@ CMakeFiles/CasinoPointerPalace.dir/src/Casino.cpp.o
  /usr/include/c++/11/pstl/glue_numeric_defs.h
  /usr/include/c++/11/any
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/RouletteStats.hpp
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/nlohmann/json.hpp
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/BlackjackStats.hpp
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/Player.hpp
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/BlackjackGame.hpp
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/CardGame.hpp
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/Game.hpp
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/Deck.hpp
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/Card.hpp
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/Dealer.hpp
@@ -1729,12 +1719,10 @@ CMakeFiles/CasinoPointerPalace.dir/src/Casino.cpp.o
  /usr/include/c++/11/iostream
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/DealerHand.hpp
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/RouletteGame.hpp
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/nlohmann/json.hpp
  /usr/include/c++/11/fstream
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h
  /usr/include/c++/11/bits/fstream.tcc
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/Dealer.hpp
 
 CMakeFiles/CasinoPointerPalace.dir/src/Dealer.cpp.o
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/Dealer.cpp
@@ -2123,7 +2111,7 @@ CMakeFiles/CasinoPointerPalace.dir/src/DealerHand.cpp.o
  /usr/include/c++/11/bits/invoke.h
  /usr/include/c++/11/bits/stl_multimap.h
  /usr/include/c++/11/bits/erase_if.h
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/nlohmann/json.hpp
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/json.hpp
  /usr/include/c++/11/algorithm
  /usr/include/c++/11/bits/stl_algo.h
  /usr/include/c++/11/bits/algorithmfwd.h
@@ -2228,12 +2216,8 @@ CMakeFiles/CasinoPointerPalace.dir/src/DealerHand.cpp.o
  /usr/include/c++/11/pstl/glue_numeric_defs.h
  /usr/include/c++/11/any
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/RouletteStats.hpp
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/nlohmann/json.hpp
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/BlackjackStats.hpp
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/Dealer.hpp
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/Dealer.hpp
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/BlackjackHand.hpp
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/Card.hpp
 
 CMakeFiles/CasinoPointerPalace.dir/src/Deck.cpp.o
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/Deck.cpp
@@ -2394,7 +2378,6 @@ CMakeFiles/CasinoPointerPalace.dir/src/Deck.cpp.o
  /usr/include/x86_64-linux-gnu/bits/types/error_t.h
  /usr/include/c++/11/bits/charconv.h
  /usr/include/c++/11/bits/basic_string.tcc
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/Card.hpp
  /usr/include/c++/11/algorithm
  /usr/include/c++/11/utility
  /usr/include/c++/11/bits/stl_relops.h
@@ -2628,7 +2611,7 @@ CMakeFiles/CasinoPointerPalace.dir/src/Game.cpp.o
  /usr/include/c++/11/bits/invoke.h
  /usr/include/c++/11/bits/stl_multimap.h
  /usr/include/c++/11/bits/erase_if.h
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/nlohmann/json.hpp
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/json.hpp
  /usr/include/c++/11/algorithm
  /usr/include/c++/11/bits/stl_algo.h
  /usr/include/c++/11/bits/algorithmfwd.h
@@ -2761,9 +2744,7 @@ CMakeFiles/CasinoPointerPalace.dir/src/Game.cpp.o
  /usr/include/c++/11/pstl/glue_numeric_defs.h
  /usr/include/c++/11/any
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/RouletteStats.hpp
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/nlohmann/json.hpp
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/BlackjackStats.hpp
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/Player.hpp
  /usr/include/c++/11/iostream
 
 CMakeFiles/CasinoPointerPalace.dir/src/Player.cpp.o
@@ -2938,7 +2919,7 @@ CMakeFiles/CasinoPointerPalace.dir/src/Player.cpp.o
  /usr/include/c++/11/bits/invoke.h
  /usr/include/c++/11/bits/stl_multimap.h
  /usr/include/c++/11/bits/erase_if.h
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/nlohmann/json.hpp
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/json.hpp
  /usr/include/c++/11/algorithm
  /usr/include/c++/11/bits/stl_algo.h
  /usr/include/c++/11/bits/algorithmfwd.h
@@ -3071,7 +3052,6 @@ CMakeFiles/CasinoPointerPalace.dir/src/Player.cpp.o
  /usr/include/c++/11/pstl/glue_numeric_defs.h
  /usr/include/c++/11/any
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/RouletteStats.hpp
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/nlohmann/json.hpp
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/BlackjackStats.hpp
  /usr/include/c++/11/iostream
 
@@ -3246,7 +3226,7 @@ CMakeFiles/CasinoPointerPalace.dir/src/PlayerStats.cpp.o
  /usr/include/x86_64-linux-gnu/bits/types/error_t.h
  /usr/include/c++/11/bits/charconv.h
  /usr/include/c++/11/bits/basic_string.tcc
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/nlohmann/json.hpp
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/json.hpp
  /usr/include/c++/11/algorithm
  /usr/include/c++/11/bits/stl_algo.h
  /usr/include/c++/11/bits/algorithmfwd.h
@@ -3379,14 +3359,12 @@ CMakeFiles/CasinoPointerPalace.dir/src/PlayerStats.cpp.o
  /usr/include/c++/11/pstl/glue_numeric_defs.h
  /usr/include/c++/11/any
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/RouletteStats.hpp
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/nlohmann/json.hpp
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/BlackjackStats.hpp
  /usr/include/c++/11/iostream
  /usr/include/c++/11/fstream
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h
  /usr/include/c++/11/bits/fstream.tcc
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/nlohmann/json.hpp
 
 CMakeFiles/CasinoPointerPalace.dir/src/RouletteGame.cpp.o
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/RouletteGame.cpp
@@ -3562,7 +3540,7 @@ CMakeFiles/CasinoPointerPalace.dir/src/RouletteGame.cpp.o
  /usr/include/c++/11/bits/invoke.h
  /usr/include/c++/11/bits/stl_multimap.h
  /usr/include/c++/11/bits/erase_if.h
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/nlohmann/json.hpp
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/json.hpp
  /usr/include/c++/11/algorithm
  /usr/include/c++/11/bits/stl_algo.h
  /usr/include/c++/11/bits/algorithmfwd.h
@@ -3695,7 +3673,6 @@ CMakeFiles/CasinoPointerPalace.dir/src/RouletteGame.cpp.o
  /usr/include/c++/11/pstl/glue_numeric_defs.h
  /usr/include/c++/11/any
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/RouletteStats.hpp
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/nlohmann/json.hpp
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/BlackjackStats.hpp
  /usr/include/c++/11/iostream
  /usr/include/c++/11/thread
@@ -3855,7 +3832,7 @@ CMakeFiles/CasinoPointerPalace.dir/src/RouletteStats.cpp.o
  /usr/include/x86_64-linux-gnu/bits/types/error_t.h
  /usr/include/c++/11/bits/charconv.h
  /usr/include/c++/11/bits/basic_string.tcc
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/nlohmann/json.hpp
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/json.hpp
  /usr/include/c++/11/algorithm
  /usr/include/c++/11/utility
  /usr/include/c++/11/bits/stl_relops.h
@@ -4210,7 +4187,7 @@ CMakeFiles/CasinoPointerPalace.dir/src/exec.cpp.o
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/Game.hpp
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/Player.hpp
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/PlayerStats.hpp
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/nlohmann/json.hpp
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/json.hpp
  /usr/include/c++/11/algorithm
  /usr/include/c++/11/bits/stl_algo.h
  /usr/include/c++/11/bits/algorithmfwd.h
@@ -4315,22 +4292,17 @@ CMakeFiles/CasinoPointerPalace.dir/src/exec.cpp.o
  /usr/include/c++/11/pstl/glue_numeric_defs.h
  /usr/include/c++/11/any
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/RouletteStats.hpp
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/nlohmann/json.hpp
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/BlackjackStats.hpp
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/Player.hpp
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/BlackjackGame.hpp
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/CardGame.hpp
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/Game.hpp
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/Deck.hpp
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/Card.hpp
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/Dealer.hpp
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/BlackjackHand.hpp
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/DealerHand.hpp
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/RouletteGame.hpp
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/nlohmann/json.hpp
  /usr/include/c++/11/fstream
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h
  /usr/include/c++/11/bits/fstream.tcc
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/Dealer.hpp
 

@@ -1,7 +1,7 @@
 CMakeFiles/CasinoPointerPalace.dir/src/Dealer.cpp.o: \
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/Dealer.cpp \
  /usr/include/stdc-predef.h \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/Dealer.hpp \
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/Dealer.hpp \
  /usr/include/c++/11/string \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \

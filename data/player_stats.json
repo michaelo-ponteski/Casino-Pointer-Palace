@@ -30,22 +30,22 @@
             "biggestLoss": 279.0,
             "blackjackStats": {
                 "blackjacks": 0,
-                "busts": 5,
+                "busts": 6,
                 "losses": 10,
                 "pushes": 0,
-                "totalHands": 20,
+                "totalHands": 21,
                 "wins": 5
             },
             "highestWin": 46.0,
-            "lastPlayedDate": 1734958395,
+            "lastPlayedDate": 1735412050,
             "rouletteStats": {
                 "favouriteColor": "Red",
-                "losses": 5,
-                "totalSpins": 7,
+                "losses": 6,
+                "totalSpins": 8,
                 "wins": 2
             },
-            "totalGamesPlayed": 24,
-            "totalLosses": 833.0,
+            "totalGamesPlayed": 26,
+            "totalLosses": 877.0,
             "totalWinnings": 200.0
         }
     },

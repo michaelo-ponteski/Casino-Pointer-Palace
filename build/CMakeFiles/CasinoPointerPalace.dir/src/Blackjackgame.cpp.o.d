@@ -1,7 +1,7 @@
 CMakeFiles/CasinoPointerPalace.dir/src/Blackjackgame.cpp.o: \
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/Blackjackgame.cpp \
  /usr/include/stdc-predef.h \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/BlackjackGame.hpp \
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/BlackjackGame.hpp \
  /usr/include/c++/11/vector /usr/include/c++/11/bits/stl_algobase.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -120,8 +120,8 @@ CMakeFiles/CasinoPointerPalace.dir/src/Blackjackgame.cpp.o: \
  /usr/include/c++/11/backward/auto_ptr.h \
  /usr/include/c++/11/pstl/glue_memory_defs.h \
  /usr/include/c++/11/pstl/execution_defs.h \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/CardGame.hpp \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/Game.hpp \
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/CardGame.hpp \
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/Game.hpp \
  /usr/include/c++/11/string /usr/include/c++/11/bits/char_traits.h \
  /usr/include/c++/11/cstdint /usr/include/c++/11/bits/localefwd.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++locale.h \
@@ -154,14 +154,14 @@ CMakeFiles/CasinoPointerPalace.dir/src/Blackjackgame.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
  /usr/include/c++/11/bits/charconv.h \
  /usr/include/c++/11/bits/basic_string.tcc \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/Player.hpp \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/../include/PlayerStats.hpp \
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/Player.hpp \
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/PlayerStats.hpp \
  /usr/include/c++/11/map /usr/include/c++/11/bits/stl_tree.h \
  /usr/include/c++/11/bits/node_handle.h \
  /usr/include/c++/11/bits/stl_map.h \
  /usr/include/c++/11/bits/stl_multimap.h \
  /usr/include/c++/11/bits/erase_if.h \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/../include/../include/nlohmann/json.hpp \
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/json.hpp \
  /usr/include/c++/11/algorithm /usr/include/c++/11/bits/stl_algo.h \
  /usr/include/c++/11/bits/algorithmfwd.h \
  /usr/include/c++/11/bits/stl_heap.h \
@@ -241,16 +241,13 @@ CMakeFiles/CasinoPointerPalace.dir/src/Blackjackgame.cpp.o: \
  /usr/include/c++/11/bits/fs_dir.h /usr/include/c++/11/bits/fs_ops.h \
  /usr/include/c++/11/numeric /usr/include/c++/11/bits/stl_numeric.h \
  /usr/include/c++/11/pstl/glue_numeric_defs.h /usr/include/c++/11/any \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/../include/../include/RouletteStats.hpp \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/../include/../include/../include/nlohmann/json.hpp \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/../include/../include/BlackjackStats.hpp \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/Deck.hpp \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/Card.hpp \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/Dealer.hpp \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/BlackjackHand.hpp \
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/RouletteStats.hpp \
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/BlackjackStats.hpp \
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/Deck.hpp \
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/Card.hpp \
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/Dealer.hpp \
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/BlackjackHand.hpp \
  /usr/include/c++/11/iostream \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/DealerHand.hpp \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/Player.hpp \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/BlackjackHand.hpp \
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/DealerHand.hpp \
  /usr/include/c++/11/thread /usr/include/c++/11/bits/std_thread.h \
  /usr/include/c++/11/bits/this_thread_sleep.h

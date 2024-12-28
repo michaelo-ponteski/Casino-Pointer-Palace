@@ -2,10 +2,10 @@
 #define CARDGAME_HPP
 
 #include <vector>
-#include "Game.hpp"
-#include "Deck.hpp"
-#include "Dealer.hpp"
-#include "Card.hpp"
+#include <Game.hpp>
+#include <Deck.hpp>
+#include <Dealer.hpp>
+#include <Card.hpp>
 
 class CardGame : public Game {
 protected:

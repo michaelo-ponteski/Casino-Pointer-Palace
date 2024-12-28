@@ -1,7 +1,7 @@
 CMakeFiles/CasinoPointerPalace.dir/src/Casino.cpp.o: \
  /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/Casino.cpp \
  /usr/include/stdc-predef.h \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/Casino.hpp \
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/Casino.hpp \
  /usr/include/c++/11/vector /usr/include/c++/11/bits/stl_algobase.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -142,10 +142,10 @@ CMakeFiles/CasinoPointerPalace.dir/src/Casino.cpp.o: \
  /usr/include/c++/11/bits/invoke.h \
  /usr/include/c++/11/bits/stl_multimap.h \
  /usr/include/c++/11/bits/erase_if.h \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/../include/Game.hpp \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/../include/Player.hpp \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/../include/../include/PlayerStats.hpp \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/../include/../include/../include/nlohmann/json.hpp \
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/Game.hpp \
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/Player.hpp \
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/PlayerStats.hpp \
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/json.hpp \
  /usr/include/c++/11/algorithm /usr/include/c++/11/bits/stl_algo.h \
  /usr/include/c++/11/bits/algorithmfwd.h \
  /usr/include/c++/11/bits/stl_heap.h \
@@ -244,23 +244,18 @@ CMakeFiles/CasinoPointerPalace.dir/src/Casino.cpp.o: \
  /usr/include/c++/11/bits/fs_dir.h /usr/include/c++/11/bits/fs_ops.h \
  /usr/include/c++/11/numeric /usr/include/c++/11/bits/stl_numeric.h \
  /usr/include/c++/11/pstl/glue_numeric_defs.h /usr/include/c++/11/any \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/../include/../include/../include/RouletteStats.hpp \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/../include/../include/../include/../include/nlohmann/json.hpp \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/../include/../include/../include/BlackjackStats.hpp \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/../include/Player.hpp \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/../include/BlackjackGame.hpp \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/../include/CardGame.hpp \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/../include/Game.hpp \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/../include/Deck.hpp \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/../include/Card.hpp \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/../include/Dealer.hpp \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/../include/BlackjackHand.hpp \
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/RouletteStats.hpp \
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/BlackjackStats.hpp \
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/BlackjackGame.hpp \
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/CardGame.hpp \
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/Deck.hpp \
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/Card.hpp \
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/Dealer.hpp \
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/BlackjackHand.hpp \
  /usr/include/c++/11/iostream \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/../include/DealerHand.hpp \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/../include/RouletteGame.hpp \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/../include/nlohmann/json.hpp \
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/DealerHand.hpp \
+ /mnt/c/put/gitprojects/Casino-Pointer-Palace/include/RouletteGame.hpp \
  /usr/include/c++/11/fstream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
- /usr/include/c++/11/bits/fstream.tcc \
- /mnt/c/put/gitprojects/Casino-Pointer-Palace/src/../include/../include/Dealer.hpp
+ /usr/include/c++/11/bits/fstream.tcc

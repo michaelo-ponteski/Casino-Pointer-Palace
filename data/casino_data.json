@@ -7,7 +7,7 @@
             "name": "Alice"
         },
         {
-            "balance": 1178.0,
+            "balance": 1145.0,
             "id": 2,
             "name": "Bob"
         },
@@ -15,11 +15,6 @@
             "balance": 2840.0,
             "id": 3,
             "name": "Janusz"
-        },
-        {
-            "balance": 96767.0,
-            "id": 4,
-            "name": "Charlie123"
         },
         {
             "balance": 2593.0,

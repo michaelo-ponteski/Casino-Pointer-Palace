@@ -4,10 +4,10 @@
 #include <vector>
 #include <map>
 #include <string>
-#include "../include/nlohmann/json.hpp"
+#include <json.hpp>
 #include <ctime>
-#include "../include/RouletteStats.hpp"
-#include "../include/BlackjackStats.hpp"
+#include <RouletteStats.hpp>
+#include <BlackjackStats.hpp>
 
 class PlayerStats {
 private:

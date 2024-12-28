@@ -203,7 +203,7 @@ CMakeFiles/CasinoPointerPalace.dir/src/BlackjackHand.cpp.o: ../src/BlackjackHand
   /usr/include/c++/11/bits/invoke.h \
   /usr/include/c++/11/bits/stl_multimap.h \
   /usr/include/c++/11/bits/erase_if.h \
-  ../include/nlohmann/json.hpp \
+  ../include/json.hpp \
   /usr/include/c++/11/algorithm \
   /usr/include/c++/11/bits/stl_algo.h \
   /usr/include/c++/11/bits/algorithmfwd.h \
@@ -308,9 +308,7 @@ CMakeFiles/CasinoPointerPalace.dir/src/BlackjackHand.cpp.o: ../src/BlackjackHand
   /usr/include/c++/11/pstl/glue_numeric_defs.h \
   /usr/include/c++/11/any \
   ../include/RouletteStats.hpp \
-  ../include/nlohmann/json.hpp \
-  ../include/BlackjackStats.hpp \
-  ../include/Card.hpp
+  ../include/BlackjackStats.hpp
 
 CMakeFiles/CasinoPointerPalace.dir/src/BlackjackStats.cpp.o: ../src/BlackjackStats.cpp \
   /usr/include/stdc-predef.h \
@@ -464,7 +462,7 @@ CMakeFiles/CasinoPointerPalace.dir/src/BlackjackStats.cpp.o: ../src/BlackjackSta
   /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
   /usr/include/c++/11/bits/charconv.h \
   /usr/include/c++/11/bits/basic_string.tcc \
-  ../include/nlohmann/json.hpp \
+  ../include/json.hpp \
   /usr/include/c++/11/algorithm \
   /usr/include/c++/11/utility \
   /usr/include/c++/11/bits/stl_relops.h \
@@ -812,7 +810,7 @@ CMakeFiles/CasinoPointerPalace.dir/src/Blackjackgame.cpp.o: ../src/Blackjackgame
   /usr/include/c++/11/bits/stl_map.h \
   /usr/include/c++/11/bits/stl_multimap.h \
   /usr/include/c++/11/bits/erase_if.h \
-  ../include/nlohmann/json.hpp \
+  ../include/json.hpp \
   /usr/include/c++/11/algorithm \
   /usr/include/c++/11/bits/stl_algo.h \
   /usr/include/c++/11/bits/algorithmfwd.h \
@@ -923,7 +921,6 @@ CMakeFiles/CasinoPointerPalace.dir/src/Blackjackgame.cpp.o: ../src/Blackjackgame
   /usr/include/c++/11/pstl/glue_numeric_defs.h \
   /usr/include/c++/11/any \
   ../include/RouletteStats.hpp \
-  ../include/nlohmann/json.hpp \
   ../include/BlackjackStats.hpp \
   ../include/Deck.hpp \
   ../include/Card.hpp \
@@ -931,8 +928,6 @@ CMakeFiles/CasinoPointerPalace.dir/src/Blackjackgame.cpp.o: ../src/Blackjackgame
   ../include/BlackjackHand.hpp \
   /usr/include/c++/11/iostream \
   ../include/DealerHand.hpp \
-  ../include/Player.hpp \
-  ../include/BlackjackHand.hpp \
   /usr/include/c++/11/thread \
   /usr/include/c++/11/bits/std_thread.h \
   /usr/include/c++/11/bits/this_thread_sleep.h
@@ -1263,7 +1258,7 @@ CMakeFiles/CasinoPointerPalace.dir/src/CardGame.cpp.o: ../src/CardGame.cpp \
   /usr/include/c++/11/bits/invoke.h \
   /usr/include/c++/11/bits/stl_multimap.h \
   /usr/include/c++/11/bits/erase_if.h \
-  ../include/nlohmann/json.hpp \
+  ../include/json.hpp \
   /usr/include/c++/11/algorithm \
   /usr/include/c++/11/bits/stl_algo.h \
   /usr/include/c++/11/bits/algorithmfwd.h \
@@ -1396,12 +1391,10 @@ CMakeFiles/CasinoPointerPalace.dir/src/CardGame.cpp.o: ../src/CardGame.cpp \
   /usr/include/c++/11/pstl/glue_numeric_defs.h \
   /usr/include/c++/11/any \
   ../include/RouletteStats.hpp \
-  ../include/nlohmann/json.hpp \
   ../include/BlackjackStats.hpp \
   ../include/Deck.hpp \
   ../include/Card.hpp \
   ../include/Dealer.hpp \
-  ../include/Deck.hpp \
   /usr/include/c++/11/iostream
 
 CMakeFiles/CasinoPointerPalace.dir/src/Casino.cpp.o: ../src/Casino.cpp \
@@ -1577,7 +1570,7 @@ CMakeFiles/CasinoPointerPalace.dir/src/Casino.cpp.o: ../src/Casino.cpp \
   ../include/Game.hpp \
   ../include/Player.hpp \
   ../include/PlayerStats.hpp \
-  ../include/nlohmann/json.hpp \
+  ../include/json.hpp \
   /usr/include/c++/11/algorithm \
   /usr/include/c++/11/bits/stl_algo.h \
   /usr/include/c++/11/bits/algorithmfwd.h \
@@ -1710,12 +1703,9 @@ CMakeFiles/CasinoPointerPalace.dir/src/Casino.cpp.o: ../src/Casino.cpp \
   /usr/include/c++/11/pstl/glue_numeric_defs.h \
   /usr/include/c++/11/any \
   ../include/RouletteStats.hpp \
-  ../include/nlohmann/json.hpp \
   ../include/BlackjackStats.hpp \
-  ../include/Player.hpp \
   ../include/BlackjackGame.hpp \
   ../include/CardGame.hpp \
-  ../include/Game.hpp \
   ../include/Deck.hpp \
   ../include/Card.hpp \
   ../include/Dealer.hpp \
@@ -1723,12 +1713,10 @@ CMakeFiles/CasinoPointerPalace.dir/src/Casino.cpp.o: ../src/Casino.cpp \
   /usr/include/c++/11/iostream \
   ../include/DealerHand.hpp \
   ../include/RouletteGame.hpp \
-  ../include/nlohmann/json.hpp \
   /usr/include/c++/11/fstream \
   /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
-  /usr/include/c++/11/bits/fstream.tcc \
-  ../include/Dealer.hpp
+  /usr/include/c++/11/bits/fstream.tcc
 
 CMakeFiles/CasinoPointerPalace.dir/src/Dealer.cpp.o: ../src/Dealer.cpp \
   /usr/include/stdc-predef.h \
@@ -2115,7 +2103,7 @@ CMakeFiles/CasinoPointerPalace.dir/src/DealerHand.cpp.o: ../src/DealerHand.cpp \
   /usr/include/c++/11/bits/invoke.h \
   /usr/include/c++/11/bits/stl_multimap.h \
   /usr/include/c++/11/bits/erase_if.h \
-  ../include/nlohmann/json.hpp \
+  ../include/json.hpp \
   /usr/include/c++/11/algorithm \
   /usr/include/c++/11/bits/stl_algo.h \
   /usr/include/c++/11/bits/algorithmfwd.h \
@@ -2220,12 +2208,8 @@ CMakeFiles/CasinoPointerPalace.dir/src/DealerHand.cpp.o: ../src/DealerHand.cpp \
   /usr/include/c++/11/pstl/glue_numeric_defs.h \
   /usr/include/c++/11/any \
   ../include/RouletteStats.hpp \
-  ../include/nlohmann/json.hpp \
   ../include/BlackjackStats.hpp \
-  ../include/Dealer.hpp \
-  ../include/Dealer.hpp \
-  ../include/BlackjackHand.hpp \
-  ../include/Card.hpp
+  ../include/Dealer.hpp
 
 CMakeFiles/CasinoPointerPalace.dir/src/Deck.cpp.o: ../src/Deck.cpp \
   /usr/include/stdc-predef.h \
@@ -2385,7 +2369,6 @@ CMakeFiles/CasinoPointerPalace.dir/src/Deck.cpp.o: ../src/Deck.cpp \
   /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
   /usr/include/c++/11/bits/charconv.h \
   /usr/include/c++/11/bits/basic_string.tcc \
-  ../include/Card.hpp \
   /usr/include/c++/11/algorithm \
   /usr/include/c++/11/utility \
   /usr/include/c++/11/bits/stl_relops.h \
@@ -2618,7 +2601,7 @@ CMakeFiles/CasinoPointerPalace.dir/src/Game.cpp.o: ../src/Game.cpp \
   /usr/include/c++/11/bits/invoke.h \
   /usr/include/c++/11/bits/stl_multimap.h \
   /usr/include/c++/11/bits/erase_if.h \
-  ../include/nlohmann/json.hpp \
+  ../include/json.hpp \
   /usr/include/c++/11/algorithm \
   /usr/include/c++/11/bits/stl_algo.h \
   /usr/include/c++/11/bits/algorithmfwd.h \
@@ -2751,9 +2734,7 @@ CMakeFiles/CasinoPointerPalace.dir/src/Game.cpp.o: ../src/Game.cpp \
   /usr/include/c++/11/pstl/glue_numeric_defs.h \
   /usr/include/c++/11/any \
   ../include/RouletteStats.hpp \
-  ../include/nlohmann/json.hpp \
   ../include/BlackjackStats.hpp \
-  ../include/Player.hpp \
   /usr/include/c++/11/iostream
 
 CMakeFiles/CasinoPointerPalace.dir/src/Player.cpp.o: ../src/Player.cpp \
@@ -2927,7 +2908,7 @@ CMakeFiles/CasinoPointerPalace.dir/src/Player.cpp.o: ../src/Player.cpp \
   /usr/include/c++/11/bits/invoke.h \
   /usr/include/c++/11/bits/stl_multimap.h \
   /usr/include/c++/11/bits/erase_if.h \
-  ../include/nlohmann/json.hpp \
+  ../include/json.hpp \
   /usr/include/c++/11/algorithm \
   /usr/include/c++/11/bits/stl_algo.h \
   /usr/include/c++/11/bits/algorithmfwd.h \
@@ -3060,7 +3041,6 @@ CMakeFiles/CasinoPointerPalace.dir/src/Player.cpp.o: ../src/Player.cpp \
   /usr/include/c++/11/pstl/glue_numeric_defs.h \
   /usr/include/c++/11/any \
   ../include/RouletteStats.hpp \
-  ../include/nlohmann/json.hpp \
   ../include/BlackjackStats.hpp \
   /usr/include/c++/11/iostream
 
@@ -3234,7 +3214,7 @@ CMakeFiles/CasinoPointerPalace.dir/src/PlayerStats.cpp.o: ../src/PlayerStats.cpp
   /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
   /usr/include/c++/11/bits/charconv.h \
   /usr/include/c++/11/bits/basic_string.tcc \
-  ../include/nlohmann/json.hpp \
+  ../include/json.hpp \
   /usr/include/c++/11/algorithm \
   /usr/include/c++/11/bits/stl_algo.h \
   /usr/include/c++/11/bits/algorithmfwd.h \
@@ -3367,14 +3347,12 @@ CMakeFiles/CasinoPointerPalace.dir/src/PlayerStats.cpp.o: ../src/PlayerStats.cpp
   /usr/include/c++/11/pstl/glue_numeric_defs.h \
   /usr/include/c++/11/any \
   ../include/RouletteStats.hpp \
-  ../include/nlohmann/json.hpp \
   ../include/BlackjackStats.hpp \
   /usr/include/c++/11/iostream \
   /usr/include/c++/11/fstream \
   /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
-  /usr/include/c++/11/bits/fstream.tcc \
-  ../include/nlohmann/json.hpp
+  /usr/include/c++/11/bits/fstream.tcc
 
 CMakeFiles/CasinoPointerPalace.dir/src/RouletteGame.cpp.o: ../src/RouletteGame.cpp \
   /usr/include/stdc-predef.h \
@@ -3549,7 +3527,7 @@ CMakeFiles/CasinoPointerPalace.dir/src/RouletteGame.cpp.o: ../src/RouletteGame.c
   /usr/include/c++/11/bits/invoke.h \
   /usr/include/c++/11/bits/stl_multimap.h \
   /usr/include/c++/11/bits/erase_if.h \
-  ../include/nlohmann/json.hpp \
+  ../include/json.hpp \
   /usr/include/c++/11/algorithm \
   /usr/include/c++/11/bits/stl_algo.h \
   /usr/include/c++/11/bits/algorithmfwd.h \
@@ -3682,7 +3660,6 @@ CMakeFiles/CasinoPointerPalace.dir/src/RouletteGame.cpp.o: ../src/RouletteGame.c
   /usr/include/c++/11/pstl/glue_numeric_defs.h \
   /usr/include/c++/11/any \
   ../include/RouletteStats.hpp \
-  ../include/nlohmann/json.hpp \
   ../include/BlackjackStats.hpp \
   /usr/include/c++/11/iostream \
   /usr/include/c++/11/thread \
@@ -3841,7 +3818,7 @@ CMakeFiles/CasinoPointerPalace.dir/src/RouletteStats.cpp.o: ../src/RouletteStats
   /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
   /usr/include/c++/11/bits/charconv.h \
   /usr/include/c++/11/bits/basic_string.tcc \
-  ../include/nlohmann/json.hpp \
+  ../include/json.hpp \
   /usr/include/c++/11/algorithm \
   /usr/include/c++/11/utility \
   /usr/include/c++/11/bits/stl_relops.h \
@@ -4195,7 +4172,7 @@ CMakeFiles/CasinoPointerPalace.dir/src/exec.cpp.o: ../src/exec.cpp \
   ../include/Game.hpp \
   ../include/Player.hpp \
   ../include/PlayerStats.hpp \
-  ../include/nlohmann/json.hpp \
+  ../include/json.hpp \
   /usr/include/c++/11/algorithm \
   /usr/include/c++/11/bits/stl_algo.h \
   /usr/include/c++/11/bits/algorithmfwd.h \
@@ -4300,24 +4277,19 @@ CMakeFiles/CasinoPointerPalace.dir/src/exec.cpp.o: ../src/exec.cpp \
   /usr/include/c++/11/pstl/glue_numeric_defs.h \
   /usr/include/c++/11/any \
   ../include/RouletteStats.hpp \
-  ../include/nlohmann/json.hpp \
   ../include/BlackjackStats.hpp \
-  ../include/Player.hpp \
   ../include/BlackjackGame.hpp \
   ../include/CardGame.hpp \
-  ../include/Game.hpp \
   ../include/Deck.hpp \
   ../include/Card.hpp \
   ../include/Dealer.hpp \
   ../include/BlackjackHand.hpp \
   ../include/DealerHand.hpp \
   ../include/RouletteGame.hpp \
-  ../include/nlohmann/json.hpp \
   /usr/include/c++/11/fstream \
   /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
-  /usr/include/c++/11/bits/fstream.tcc \
-  ../include/Dealer.hpp
+  /usr/include/c++/11/bits/fstream.tcc
 
 
 ../src/RouletteGame.cpp:
@@ -4790,8 +4762,6 @@ CMakeFiles/CasinoPointerPalace.dir/src/exec.cpp.o: ../src/exec.cpp \
 
 /usr/include/alloca.h:
 
-../include/nlohmann/json.hpp:
-
 /usr/include/c++/11/cstdio:
 
 /usr/include/stdio.h:
@@ -4965,6 +4935,8 @@ CMakeFiles/CasinoPointerPalace.dir/src/exec.cpp.o: ../src/exec.cpp \
 /usr/include/c++/11/memory:
 
 /usr/include/c++/11/bits/stl_raw_storage_iter.h:
+
+../include/json.hpp:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h:
 

@@ -2,7 +2,7 @@
 #define BLACKJACKSTATS_HPP
 
 #include <string>
-#include "../include/nlohmann/json.hpp"
+#include <json.hpp>
 
 class BlackjackStats {
 public:

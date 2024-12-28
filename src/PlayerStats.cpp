@@ -1,7 +1,7 @@
-#include "../include/PlayerStats.hpp"
+#include <PlayerStats.hpp>
 #include <iostream>
 #include <fstream>
-#include "../include/nlohmann/json.hpp"
+#include <json.hpp>
 
 // Constructor
 PlayerStats::PlayerStats(std::string name, bool existingPlayer) {
@@ -32,7 +32,7 @@ void PlayerStats::resetStats() {
 
 // Save to file
 void PlayerStats::saveToFile() const {
-    std::ifstream inFile("../data/player_stats.json");
+    std::ifstream inFile("data/player_stats.json");
     nlohmann::json j;
     if (inFile.is_open()) {
         try {
@@ -42,7 +42,7 @@ void PlayerStats::saveToFile() const {
         }
         inFile.close();
     } else {
-        std::cerr << "Could not open file for reading: ../data/player_stats.json" << std::endl;
+        std::cerr << "Could not open file for reading: data/player_stats.json" << std::endl;
     }
 
     bool playerFound = false;
@@ -58,7 +58,7 @@ void PlayerStats::saveToFile() const {
         j.push_back({{"playerName", playerName}, {"stats", toJson()}});
     }
 
-    std::ofstream outFile("../data/player_stats.json");
+    std::ofstream outFile("data/player_stats.json");
     if (outFile.is_open()) {
         try {
             outFile << j.dump(4);
@@ -67,13 +67,13 @@ void PlayerStats::saveToFile() const {
         }
         outFile.close();
     } else {
-        std::cerr << "Could not open file for writing: ../data/player_stats.json" << std::endl;
+        std::cerr << "Could not open file for writing: data/player_stats.json" << std::endl;
     }
 }
 
 // Load from file
 void PlayerStats::loadFromFile() {
-    std::ifstream file("../data/player_stats.json");
+    std::ifstream file("data/player_stats.json");
     if (file.is_open()) {
         nlohmann::json j;
         try {
@@ -92,7 +92,7 @@ void PlayerStats::loadFromFile() {
             }
         }
     } else {
-        std::cerr << "Could not open file for reading: ../data/player_stats.json" << std::endl;
+        std::cerr << "Could not open file for reading: data/player_stats.json" << std::endl;
     }
     resetStats(); // If player not found or file not opened, reset stats
 }
