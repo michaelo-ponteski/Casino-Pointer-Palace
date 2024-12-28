@@ -5,6 +5,10 @@
 #include <stdexcept>
 #include <iostream>
 
+#ifdef _WIN32
+#include <windows.h>
+#endif
+
 // Constructor
 BlackjackHand::BlackjackHand(Player* player) : owner(player), betAmount(0.0), isActive(true) {
     // std::cout << "Blackjack hand created." << std::endl;
@@ -90,15 +94,20 @@ void BlackjackHand::prettyPrint() const {
         return;
     }
 
+    #ifdef _WIN32
+    // Set the console output to UTF-8 on Windows
+    SetConsoleOutputCP(CP_UTF8);
+    #endif
+
     std::vector<std::string> suits;
     std::vector<std::string> ranks;
     for (const Card& card : cards) {
         std::string suitStr;
         switch (card.getSuit()) {
-            case Suit::HEARTS: suitStr = "♥"; break;
-            case Suit::DIAMONDS: suitStr = "♦"; break;
-            case Suit::CLUBS: suitStr = "♣"; break;
-            case Suit::SPADES: suitStr = "♠"; break;
+            case Suit::HEARTS: suitStr = u8"\u2665"; break; // ♥
+            case Suit::DIAMONDS: suitStr = u8"\u2666"; break; // ♦
+            case Suit::CLUBS: suitStr = u8"\u2663"; break; // ♣
+            case Suit::SPADES: suitStr = u8"\u2660"; break; // ♠
             default: suitStr = " "; break;
         }
         suits.push_back(suitStr);

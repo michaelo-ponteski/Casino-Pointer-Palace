@@ -31,7 +31,7 @@
     ```
 7. Run the project with:
     ```sh
-    ./build/CasinoPointerPalace.exe
+    .\\build\\CasinoPointerPalace.exe
     ```
 
 ## Notes:
