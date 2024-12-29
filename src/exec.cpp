@@ -3,10 +3,6 @@
 #include <Casino.hpp>
 #include <limits>
 
-// If the build dir is not empty, remove all files from it
-// Initiate cmake with: cmake -B build
-// Build the project with: cmake --build build
-// Run the project with: ./build/CasinoPointerPalace
 
 void printASCIIart() {
     std::cout << R"(
